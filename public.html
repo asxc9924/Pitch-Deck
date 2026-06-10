@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExamPrime — Investor Pitching Package 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap');
+
+  :root {
+    --navy: #0B1D3A;
+    --navy-mid: #162B52;
+    --orange: #F4800A;
+    --orange-light: #FFA53E;
+    --gold: #E8B84B;
+    --white: #FFFFFF;
+    --off-white: #F7F8FC;
+    --slate: #6B7C93;
+    --light-gray: #EEF1F8;
+    --border: #D9E0EE;
+    --green: #1DB97A;
+    --red: #E53E3E;
+    --text: #1A2744;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1E3A6B 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(244,128,10,0.15) 0%, transparent 70%);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,184,75,0.1) 0%, transparent 70%);
+  }
+  .cover-badge {
+    background: rgba(244,128,10,0.15);
+    border: 1px solid rgba(244,128,10,0.4);
+    color: var(--orange-light);
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    z-index: 1;
+  }
+  .cover-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 800;
+    color: var(--white);
+    z-index: 1;
+    line-height: 1;
+  }
+  .cover-logo span { color: var(--orange); }
+  .cover-tagline {
+    font-size: 20px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 16px;
+    font-weight: 300;
+    z-index: 1;
+    max-width: 600px;
+  }
+  .cover-divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--gold));
+    margin: 30px auto;
+    z-index: 1;
+    border-radius: 2px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+    z-index: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cover-meta-item {
+    text-align: center;
+  }
+  .cover-meta-item .val {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--orange-light);
+    display: block;
+  }
+  .cover-meta-item .lbl {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .cover-footer {
+    position: absolute;
+    bottom: 30px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    z-index: 1;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--navy);
+    color: var(--white);
+    padding: 60px 60px;
+    page-break-after: always;
+  }
+  .toc h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+  .toc-sub {
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 40px;
+    font-size: 14px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+  }
+  .toc-item:hover { background: rgba(244,128,10,0.1); border-color: rgba(244,128,10,0.3); }
+  .toc-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--orange);
+    min-width: 28px;
+    letter-spacing: 1px;
+  }
+  .toc-title { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.85); }
+
+  /* ── SECTION WRAPPERS ── */
+  .section {
+    padding: 70px 60px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:nth-child(odd) { background: var(--white); }
+  .section:nth-child(even) { background: var(--off-white); }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .section-num {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--orange);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    min-width: 36px;
+    padding-top: 6px;
+  }
+  .section-title-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .section-title-block p {
+    color: var(--slate);
+    font-size: 15px;
+    margin-top: 6px;
+  }
+  .accent-bar {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--gold));
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 30px 0 14px;
+  }
+  h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 20px 0 8px;
+  }
+  p { margin-bottom: 14px; color: var(--text); }
+  strong { color: var(--navy); }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: var(--white);
+    padding: 30px 36px;
+    border-radius: 12px;
+    margin: 24px 0;
+    border-left: 4px solid var(--orange);
+  }
+  .callout p { color: rgba(255,255,255,0.85); margin: 0; }
+  .callout strong { color: var(--orange-light); }
+
+  .callout-light {
+    background: linear-gradient(135deg, rgba(244,128,10,0.06), rgba(232,184,75,0.06));
+    border: 1px solid rgba(244,128,10,0.2);
+    border-left: 4px solid var(--orange);
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin: 16px 0;
+  }
+  .callout-light p { margin: 0; font-size: 14px; }
+
+  /* ── STAT CARDS ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .stat-card .big { font-size: 36px; font-weight: 800; color: var(--navy); line-height: 1; }
+  .stat-card .big span { color: var(--orange); }
+  .stat-card .label { font-size: 12px; color: var(--slate); margin-top: 6px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+  .stat-card .sub { font-size: 12px; color: var(--slate); margin-top: 4px; }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; margin: 24px 0; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead tr { background: var(--navy); }
+  thead th { color: var(--white); padding: 14px 16px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--off-white); }
+  tbody td { padding: 13px 16px; vertical-align: top; }
+  .tag-green { background: rgba(29,185,122,0.1); color: #0f9c5e; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; display: inline-block; }
+  .tag-orange { background: rgba(244,128,10,0.1); color: var(--orange); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; display: inline-block; }
+  .tag-red { background: rgba(229,62,62,0.1); color: var(--red); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; display: inline-block; }
+  .tag-blue { background: rgba(11,29,58,0.08); color: var(--navy); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; display: inline-block; }
+
+  /* ── FEATURE GRID ── */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 24px 0;
+  }
+  .feature-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .feature-card .icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--orange), var(--gold));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .feature-card h4 { margin: 0 0 8px; font-size: 16px; }
+  .feature-card p { margin: 0; font-size: 13.5px; color: var(--slate); }
+
+  /* ── PHASE BLOCKS ── */
+  .phase-block {
+    border-left: 3px solid var(--orange);
+    padding: 20px 24px;
+    background: var(--white);
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .phase-block .phase-tag {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 8px;
+  }
+  .phase-block h4 { margin: 0 0 10px; }
+  .phase-block ul { padding-left: 18px; color: var(--slate); font-size: 13.5px; }
+  .phase-block ul li { margin-bottom: 4px; }
+
+  /* ── PERSONA CARDS ── */
+  .persona-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin: 24px 0; }
+  .persona-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .persona-header {
+    background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+    padding: 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .persona-avatar {
+    width: 54px; height: 54px;
+    background: rgba(244,128,10,0.25);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+  }
+  .persona-name { color: var(--white); font-weight: 700; font-size: 18px; }
+  .persona-role { color: rgba(255,255,255,0.55); font-size: 13px; }
+  .persona-body { padding: 20px 24px; }
+  .persona-body p { font-size: 13.5px; margin-bottom: 14px; }
+  .persona-tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .persona-tag { background: var(--light-gray); padding: 4px 12px; border-radius: 12px; font-size: 12px; color: var(--slate); font-weight: 500; }
+
+  /* ── TIMELINE ── */
+  .timeline { margin: 24px 0; }
+  .timeline-item { display: flex; gap: 20px; margin-bottom: 28px; }
+  .timeline-dot-col { display: flex; flex-direction: column; align-items: center; }
+  .timeline-dot {
+    width: 40px; height: 40px; min-width: 40px;
+    background: linear-gradient(135deg, var(--orange), var(--gold));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 13px; color: var(--white);
+  }
+  .timeline-line { width: 2px; flex: 1; background: var(--border); margin-top: 4px; }
+  .timeline-content { padding-bottom: 24px; }
+  .timeline-content .quarter { font-size: 11px; font-weight: 700; color: var(--orange); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .timeline-content h4 { margin: 0 0 8px; }
+  .timeline-content p { font-size: 13.5px; color: var(--slate); margin: 0; }
+
+  /* ── SWOT ── */
+  .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .swot-box { padding: 24px; border-radius: 10px; }
+  .swot-box.s { background: rgba(29,185,122,0.08); border: 1px solid rgba(29,185,122,0.25); }
+  .swot-box.w { background: rgba(244,128,10,0.06); border: 1px solid rgba(244,128,10,0.2); }
+  .swot-box.o { background: rgba(11,29,58,0.05); border: 1px solid rgba(11,29,58,0.15); }
+  .swot-box.t { background: rgba(229,62,62,0.06); border: 1px solid rgba(229,62,62,0.2); }
+  .swot-box h4 { margin: 0 0 12px; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+  .swot-box.s h4 { color: #0f9c5e; }
+  .swot-box.w h4 { color: var(--orange); }
+  .swot-box.o h4 { color: var(--navy); }
+  .swot-box.t h4 { color: var(--red); }
+  .swot-box ul { padding-left: 16px; font-size: 13.5px; color: var(--text); }
+  .swot-box ul li { margin-bottom: 6px; }
+
+  /* ── VS COMPARE ── */
+  .vs-table th:first-child { width: 220px; }
+  .check { color: var(--green); font-weight: 700; }
+  .cross { color: var(--red); font-weight: 700; }
+  .partial { color: var(--gold); font-weight: 700; }
+
+  /* ── BMC ── */
+  .bmc-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; grid-template-rows: auto auto; gap: 12px; margin: 24px 0; }
+  .bmc-cell {
+    background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 20px;
+  }
+  .bmc-cell h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--orange); margin: 0 0 10px; }
+  .bmc-cell ul { padding-left: 16px; font-size: 13px; color: var(--slate); }
+  .bmc-cell ul li { margin-bottom: 5px; }
+  .bmc-vp { grid-column: 2; grid-row: 1 / 3; background: linear-gradient(135deg, var(--navy), var(--navy-mid)); }
+  .bmc-vp h4 { color: var(--orange-light); }
+  .bmc-vp ul { color: rgba(255,255,255,0.7); }
+  .bmc-bottom { grid-column: 1 / 4; background: var(--light-gray); }
+
+  /* ── RISK TABLE ── */
+  .risk-level-high { color: var(--red); font-weight: 700; }
+  .risk-level-med { color: var(--orange); font-weight: 700; }
+  .risk-level-low { color: var(--green); font-weight: 700; }
+
+  /* ── FUNDING BOX ── */
+  .fund-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 24px 0; }
+  .fund-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .fund-card .amount { font-size: 30px; font-weight: 800; color: var(--navy); }
+  .fund-card .amount span { color: var(--orange); }
+  .fund-card .use { font-size: 13px; color: var(--slate); margin-top: 6px; }
+  .fund-card .pct { font-size: 12px; font-weight: 700; color: var(--orange); margin-top: 4px; letter-spacing: 1px; }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '☐'; color: var(--orange); font-size: 16px; min-width: 20px; }
+
+  /* ── FINANCIAL TABLE ── */
+  .fin-highlight { background: rgba(244,128,10,0.08) !important; font-weight: 700; }
+  .fin-total { background: var(--navy) !important; }
+  .fin-total td { color: var(--white) !important; font-weight: 700; }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 30px;
+    font-size: 12px;
+  }
+  .doc-footer strong { color: rgba(255,255,255,0.7); }
+
+  /* ── SLIDE CARDS ── */
+  .slide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; margin: 24px 0; }
+  .slide-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+    overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .slide-top {
+    background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .slide-num { font-size: 11px; font-weight: 800; color: var(--orange); letter-spacing: 2px; }
+  .slide-name { font-size: 14px; font-weight: 600; color: var(--white); }
+  .slide-body { padding: 18px 20px; }
+  .slide-body p { font-size: 13.5px; color: var(--slate); margin: 0 0 10px; }
+  .slide-body ul { padding-left: 16px; font-size: 13px; color: var(--slate); }
+  .slide-body ul li { margin-bottom: 4px; }
+  .slide-key { font-size: 12px; font-weight: 600; color: var(--orange); margin-top: 12px; }
+
+  /* ── CHANNEL TAGS ── */
+  .channel-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .channel-tag { background: var(--light-gray); border: 1px solid var(--border); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500; color: var(--navy); }
+
+  /* ── ORG CHART ── */
+  .org-chart { font-family: 'Inter', sans-serif; }
+  .org-level { display: flex; justify-content: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .org-box {
+    background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 20px; text-align: center; min-width: 160px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .org-box.ceo { background: linear-gradient(135deg, var(--navy), var(--navy-mid)); color: var(--white); border: none; }
+  .org-box.ceo .title { color: var(--orange-light); }
+  .org-box .name { font-weight: 700; font-size: 14px; }
+  .org-box .title { font-size: 12px; color: var(--slate); margin-top: 4px; }
+  .org-box.ceo .title { color: var(--orange-light); }
+  .org-connector { text-align: center; color: var(--border); font-size: 20px; margin: -12px 0 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+
+  @media (max-width: 768px) {
+    .section { padding: 40px 24px; }
+    .toc { padding: 40px 24px; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .three-col { grid-template-columns: 1fr; }
+    .cover-logo { font-size: 48px; }
+    .bmc-grid { grid-template-columns: 1fr; }
+    .bmc-vp { grid-column: 1; grid-row: auto; }
+    .bmc-bottom { grid-column: 1; }
+    .swot-grid { grid-template-columns: 1fr; }
+  }
+
+  ul.bullet { padding-left: 20px; margin-bottom: 14px; }
+  ul.bullet li { margin-bottom: 6px; color: var(--text); }
+  ul.bullet li strong { color: var(--navy); }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════ COVER ══════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-badge">Confidential · Investor Package · 2026</div>
+  <div class="cover-logo">Exam<span>Prime</span></div>
+  <div class="cover-tagline">India's First Exam Intelligence Platform<br>Study What Matters Most. Not More.</div>
+  <div class="cover-divider"></div>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><span class="val">₹3Cr</span><span class="lbl">Seed Ask</span></div>
+    <div class="cover-meta-item"><span class="val">50M+</span><span class="lbl">Addressable Users</span></div>
+    <div class="cover-meta-item"><span class="val">₹8,500Cr</span><span class="lbl">Market Opportunity</span></div>
+    <div class="cover-meta-item"><span class="val">MVP</span><span class="lbl">Stage</span></div>
+    <div class="cover-meta-item"><span class="val">EdTech</span><span class="lbl">Sector</span></div>
+  </div>
+  <div class="cover-footer">ExamPrime |  | Confidential — Not for Redistribution</div>
+</div>
+
+<!-- ══════════════════════════════════════════ TABLE OF CONTENTS ══════════════════════════════════════════ -->
+<div class="toc" id="toc">
+  <h2>Table of Contents</h2>
+  <div class="toc-sub">15 Sections · Investor-Grade Document · ExamPrime 2026</div>
+  <div class="toc-grid">
+    <a href="#s1" class="toc-item"><span class="toc-num">01</span><span class="toc-title">Executive Summary</span></a>
+    <a href="#s2" class="toc-item"><span class="toc-num">02</span><span class="toc-title">Pitch Deck Content (15 Slides)</span></a>
+    <a href="#s3" class="toc-item"><span class="toc-num">03</span><span class="toc-title">Market Research Report</span></a>
+    <a href="#s4" class="toc-item"><span class="toc-num">04</span><span class="toc-title">Target Audience Analysis</span></a>
+    <a href="#s5" class="toc-item"><span class="toc-num">05</span><span class="toc-title">Product Requirements Document (PRD)</span></a>
+    <a href="#s6" class="toc-item"><span class="toc-num">06</span><span class="toc-title">Product Roadmap</span></a>
+    <a href="#s7" class="toc-item"><span class="toc-num">07</span><span class="toc-title">Business Model Canvas</span></a>
+    <a href="#s8" class="toc-item"><span class="toc-num">08</span><span class="toc-title">Revenue Model</span></a>
+    <a href="#s9" class="toc-item"><span class="toc-num">09</span><span class="toc-title">Go-To-Market Strategy</span></a>
+    <a href="#s10" class="toc-item"><span class="toc-num">10</span><span class="toc-title">Competitive Analysis</span></a>
+    <a href="#s11" class="toc-item"><span class="toc-num">11</span><span class="toc-title">Financial Projections (5 Years)</span></a>
+    <a href="#s12" class="toc-item"><span class="toc-num">12</span><span class="toc-title">Funding Requirement Document</span></a>
+    <a href="#s13" class="toc-item"><span class="toc-num">13</span><span class="toc-title">Team & Organization Structure</span></a>
+    <a href="#s14" class="toc-item"><span class="toc-num">14</span><span class="toc-title">Risk Assessment</span></a>
+    
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 1: EXECUTIVE SUMMARY ══════════════════════════════════════════ -->
+<div class="section" id="s1">
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <div class="section-title-block">
+      <h2>Executive Summary</h2>
+      <p>A concise overview of the opportunity, solution, and investment thesis</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>"ExamPrime is building the world's first Exam Intelligence Platform for India's 50M+ government job aspirants — replacing content overload with AI-powered precision: the right questions, the right topics, at the right time."</strong></p>
+  </div>
+
+  <h3>Company Overview</h3>
+  <p>ExamPrime is an early-stage EdTech startup, building a precision-first exam preparation platform for competitive government exam aspirants. The company has an MVP live at <strong></strong>, featuring an AI-driven paper prediction engine, a proprietary Master Paper system, and a Three Mock Framework — all designed to help aspirants maximize output while minimising study time.</p>
+  <p>ExamPrime targets the single largest cohort of test-prep users in Asia: the estimated 50 million active aspirants preparing for SSC, Banking, Railways, Defence, UPSC, and State PSC examinations in India every year.</p>
+
+  <h3>Vision & Mission</h3>
+  <div class="two-col">
+    <div class="callout-light">
+      <h4>🎯 Vision</h4>
+      <p>To become India's most trusted exam intelligence platform and the default preparation system for every government exam aspirant — India's first and definitive "Exam GPS."</p>
+    </div>
+    <div class="callout-light">
+      <h4>🚀 Mission</h4>
+      <p>To help government exam aspirants maximize preparation efficiency by focusing only on the highest-probability topics, concepts, and questions — turning limited time into maximum results.</p>
+    </div>
+  </div>
+
+  <h3>Problem Statement</h3>
+  <p>India's government exam preparation industry suffers from a paradox of abundance. Over 500+ platforms, thousands of coaches, and hundreds of test-series providers flood aspirants with content — yet success rates remain below 1% for most exams. The core problem is not lack of content. It is lack of prioritization intelligence.</p>
+  <ul class="bullet">
+    <li>Over 50 million aspirants appear for government exams annually; fewer than 2% are selected.</li>
+    <li>Average aspirant spends ₹15,000–₹80,000/year on coaching with no guarantee of outcome improvement.</li>
+    <li>Most platforms offer 50–100 mock tests, 1,000+ hours of video, and question banks of 100,000+ questions — creating paralysis rather than preparation.</li>
+    <li>Students preparing with 15 days left have no single trusted source to tell them: <em>"These are the 200 most important questions for your exam."</em></li>
+  </ul>
+
+  <h3>Solution</h3>
+  <p>ExamPrime solves this through three proprietary products that collectively replace a ₹20,000+ coaching package:</p>
+  <div class="feature-grid">
+    <div class="feature-card"><div class="icon">📄</div><h4>Master Paper</h4><p>The most important paper on the platform. Compresses the entire syllabus — highest-probability questions, most-repeated concepts, maximum-weightage topics — into one definitive paper. The last paper a student needs before any exam.</p></div>
+    <div class="feature-card"><div class="icon">📊</div><h4>Three Mock Framework</h4><p>Three surgically designed mock tests — Core Concepts, Emerging Trends, and Full Simulation — that deliver maximum exam-relevant coverage with minimum effort. No more 50-test overwhelm.</p></div>
+    <div class="feature-card"><div class="icon">🤖</div><h4>AI Prediction Engine</h4><p>Proprietary AI model trained on 10+ years of historical exam data, topic-weight analysis, and question-frequency mapping to predict the highest-probability content for each upcoming exam.</p></div>
+  </div>
+
+  <h3>Market Opportunity</h3>
+  <div class="stat-row">
+    <div class="stat-card"><div class="big">₹<span>8,500</span>Cr</div><div class="label">TAM — India Test Prep</div><div class="sub">$1B+ market, growing at 8.7% CAGR</div></div>
+    <div class="stat-card"><div class="big">₹<span>2,200</span>Cr</div><div class="label">SAM — Govt Exam Prep</div><div class="sub">~26% of total test prep market</div></div>
+    <div class="stat-card"><div class="big">₹<span>220</span>Cr</div><div class="label">SOM — Year 3 Target</div><div class="sub">~10% of SAM, reachable by FY28</div></div>
+    <div class="stat-card"><div class="big"><span>50M</span>+</div><div class="label">Active Aspirants</div><div class="sub">SSC, Banking, Railway, Defence, PSC</div></div>
+  </div>
+
+  <h3>Business Model</h3>
+  <p>ExamPrime operates on a B2C SaaS + transactional hybrid model. Revenue comes from three primary streams:</p>
+  <ul class="bullet">
+    <li><strong>Subscription Plans:</strong> ₹99–₹999/month for full platform access.</li>
+    <li><strong>Per-Paper Purchases:</strong> ₹29–₹199 per Master Paper or mock paper.</li>
+    <li><strong>Premium Bundles:</strong> ₹499–₹1,499 per exam-specific bundles (Master Paper + 3 Mocks + AI Predictions).</li>
+  </ul>
+
+  <h3>Competitive Advantage</h3>
+  <p>While incumbents (Testbook, Adda247, Unacademy) compete on content volume, ExamPrime competes on <strong>prediction intelligence and preparation efficiency</strong>. Our moat is not the number of questions — it is the algorithmic intelligence to identify the right ones before the exam.</p>
+
+  <h3>Funding Requirement</h3>
+  <div class="callout">
+    <p>ExamPrime is seeking a <strong>₹3 Crore (approx. $360K USD) Seed Round</strong> to fund 18 months of operations: product development, AI engine training, content creation, and initial customer acquisition. This round will enable the team to reach 50,000 paying subscribers and ₹2.5 Crore ARR, positioning the company for a ₹15–25 Crore Series A in 2027.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 2: PITCH DECK ══════════════════════════════════════════ -->
+<div class="section" id="s2">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <div class="section-title-block">
+      <h2>Pitch Deck Content</h2>
+      <p>15-slide investor presentation framework with full content for each slide</p>
+    </div>
+  </div>
+
+  <div class="slide-grid">
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 01</span><span class="slide-name">Title Slide</span></div>
+      <div class="slide-body">
+        <p><strong>ExamPrime</strong> — India's Exam Intelligence Platform</p>
+        <ul><li>"Study What Matters Most. Not More."</li><li>Seed Round — ₹3 Crore | 2026</li><li>Website: </li><li>Sector: EdTech · B2C SaaS · AI-Driven</li></ul>
+        <div class="slide-key">KEY VISUAL: Orange-navy gradient with target/precision motif</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 02</span><span class="slide-name">The Problem</span></div>
+      <div class="slide-body">
+        <p>India has 50M+ government exam aspirants. Success rates are below 1%. Why? Not lack of content — lack of prioritization.</p>
+        <ul><li>Average platform: 100 mocks, 50,000+ questions, 1,000+ hours of video</li><li>Students are overwhelmed, not educated</li><li>₹80,000/year coaching — no prioritization framework</li><li>No answer to: "With 15 days left, what do I study?"</li></ul>
+        <div class="slide-key">DATA POINT: SSC CGL 2025 — 2.8M applicants, 14,582 seats = 193 applicants/seat</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 03</span><span class="slide-name">The Solution</span></div>
+      <div class="slide-body">
+        <p>ExamPrime replaces content overload with <strong>Exam Intelligence</strong>.</p>
+        <ul><li><strong>Master Paper:</strong> The entire exam in one high-probability paper</li><li><strong>Three Mock Framework:</strong> 3 precision mocks replacing 50+ generic tests</li><li><strong>AI Prediction Engine:</strong> Identifies top-probability questions before each exam</li><li>Outcome: Same (or better) results in a fraction of the time</li></ul>
+        <div class="slide-key">HOOK: "Netflix for exam prep — curated, not overwhelming."</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 04</span><span class="slide-name">Product Overview</span></div>
+      <div class="slide-body">
+        <p>A lightweight web + mobile platform with three core modules:</p>
+        <ul><li>Exam Intelligence Dashboard — upcoming exams, AI-predicted topics</li><li>Master Paper Viewer — interactive, timed, analytics-enabled</li><li>Three Mocks — adaptive scoring and detailed solutions</li><li>Admin panel for exam creation and analytics (live)</li></ul>
+        <div class="slide-key">SHOW: Live MVP screenshots from </div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 05</span><span class="slide-name">Market Opportunity</span></div>
+      <div class="slide-body">
+        <ul><li><strong>TAM:</strong> ₹8,500 Crore — India test prep market (growing 8.7% CAGR)</li><li><strong>SAM:</strong> ₹2,200 Crore — Government exam prep digital segment</li><li><strong>SOM:</strong> ₹220 Crore — Reachable by Year 3 (10% of SAM)</li><li>Second-largest exam category in India after Engineering/Medical</li><li>Tier 2/3 cities: fastest-growing aspirant pool (60%+ of applicants)</li></ul>
+        <div class="slide-key">SOURCE: Technavio 2025 · IMARC 2025 · SSC Data</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 06</span><span class="slide-name">Target Audience</span></div>
+      <div class="slide-body">
+        <ul><li>Age 18–30, 60% male · 40% female, Tier 1/2/3 cities</li><li>Preparing for: SSC (35M+), Banking (8M+), Railways (10M+), Defence (5M+)</li><li>Already paying ₹500–₹5,000/month for preparation</li><li>Primary pain: No prioritized study guide for remaining time</li><li>Device: 70% mobile-first; Hindi + English bilingual</li></ul>
+        <div class="slide-key">INSIGHT: 60% of SSC/Banking aspirants are from Tier 2/3 towns</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 07</span><span class="slide-name">Customer Personas</span></div>
+      <div class="slide-body">
+        <ul><li><strong>The Last-Mile Aspirant:</strong> Exam in 30 days, panic mode, needs the Master Paper NOW</li><li><strong>The Repeat Taker:</strong> Failed 2–3 times, looking for a smarter approach, not more content</li><li><strong>The Budget Preparer:</strong> Can't afford ₹30,000 coaching, needs maximum-value digital tool</li><li><strong>The Urban Switcher:</strong> Used Adda247/Testbook, frustrated by overload</li></ul>
+        <div class="slide-key">Detailed personas in Section 4</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 08</span><span class="slide-name">TAM · SAM · SOM</span></div>
+      <div class="slide-body">
+        <ul><li><strong>TAM ₹8,500Cr:</strong> All Indian test prep (online + offline). Includes JEE, NEET, UPSC, Banking, SSC, Railways, Defence, PSC, Teaching</li><li><strong>SAM ₹2,200Cr:</strong> Digital government exam prep market (SSC, Banking, Railway, Defence, PSC)</li><li><strong>SOM ₹220Cr:</strong> Precision-prep niche: aspirants paying ₹100–₹500/month for smart tools, Year 3 target</li></ul>
+        <div class="slide-key">Bottom-up build: 440K users × ₹499 ARPU = ₹220Cr annual revenue</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 09</span><span class="slide-name">Competitor Analysis</span></div>
+      <div class="slide-body">
+        <ul><li><strong>Testbook:</strong> Volume-first, 100+ mocks — ₹800Cr+ revenue, not focused on prediction</li><li><strong>Adda247:</strong> ₹243Cr FY24 revenue, Google-backed, broad content empire, no precision layer</li><li><strong>Unacademy:</strong> ₹988Cr revenue, 11K educators — generalist, not exam-specific</li><li><strong>ExamPrime Gap:</strong> No incumbent offers AI-predicted, precision-first, low-content preparation</li></ul>
+        <div class="slide-key">ExamPrime's white space: Precision Intelligence, not content volume</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 10</span><span class="slide-name">Unique Selling Proposition</span></div>
+      <div class="slide-body">
+        <p><strong>The only platform that tells you WHAT to study — not HOW MUCH to study.</strong></p>
+        <ul><li>AI-predicted, exam-specific high-probability question sets</li><li>Master Paper: 1 paper = entire exam syllabus compressed</li><li>3 Mocks = 97% exam coverage (vs 50+ mocks from competitors)</li><li>Built for the last 30 days, not the whole year</li><li>10× cheaper than coaching, 5× more efficient than competitors</li></ul>
+        <div class="slide-key">Positioning: "Exam Intelligence" vs "Exam Content"</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 11</span><span class="slide-name">Business Model</span></div>
+      <div class="slide-body">
+        <ul><li><strong>Freemium:</strong> Free access to 1 Master Paper sample and 1 Mock</li><li><strong>Pay-per-paper:</strong> ₹29–₹199 per paper — lowest barrier to conversion</li><li><strong>Monthly Pass:</strong> ₹99–₹299/month — unlimited access</li><li><strong>Exam Bundle:</strong> ₹499–₹1,499 — Master Paper + 3 Mocks + Predictions</li><li><strong>Institutional:</strong> ₹50,000–₹5L/year — coaching institutes, colleges, employers</li></ul>
+        <div class="slide-key">Target blended ARPU: ₹450/user/year at scale</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 12</span><span class="slide-name">Go-To-Market Strategy</span></div>
+      <div class="slide-body">
+        <ul><li><strong>Phase 1 (0–6M):</strong> Organic — WhatsApp groups, Telegram channels, YouTube Shorts</li><li><strong>Phase 2 (6–12M):</strong> Influencer partnerships with exam-niche YouTubers (1M–10M subs)</li><li><strong>Phase 3 (12–24M):</strong> Performance marketing, app store, institutional tie-ups</li><li>Key insight: Government exam communities are viral by nature — one success story spreads to 1,000 aspirants</li></ul>
+        <div class="slide-key">CAC Target: ₹150–₹200 | LTV Target: ₹900–₹1,350</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 13</span><span class="slide-name">Financial Projections</span></div>
+      <div class="slide-body">
+        <ul><li><strong>Year 1:</strong> 8,000 paying users · ₹36L ARR</li><li><strong>Year 2:</strong> 50,000 users · ₹2.25Cr ARR</li><li><strong>Year 3:</strong> 2,00,000 users · ₹9Cr ARR</li><li><strong>Year 4:</strong> 6,00,000 users · ₹27Cr ARR</li><li><strong>Year 5:</strong> 15,00,000 users · ₹67Cr ARR</li></ul>
+        <div class="slide-key">Break-even at Month 18 | 5-Year Revenue: ₹105Cr cumulative</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 14</span><span class="slide-name">Team</span></div>
+      <div class="slide-body">
+        <ul><li><strong>Founder/CEO:</strong> Product vision, strategy, government exam domain expertise</li><li><strong>CTO:</strong> AI/ML platform architecture, web + mobile build</li><li><strong>Head of Content:</strong> Master Paper creation, exam analysis, subject experts</li><li><strong>Growth Lead:</strong> Community building, influencer partnerships, digital marketing</li><li><strong>Advisory Board:</strong> IIT/IIM alumni, EdTech operators, former SSC/UPSC toppers</li></ul>
+        <div class="slide-key">Team section detailed in Section 13</div>
+      </div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-top"><span class="slide-num">SLIDE 15</span><span class="slide-name">Funding Ask & Use of Funds</span></div>
+      <div class="slide-body">
+        <p><strong>Seeking ₹3 Crore Seed Round</strong> for 18-month runway.</p>
+        <ul><li>40% (₹1.2Cr) — Product & AI Engine Development</li><li>25% (₹75L) — Content Creation & Exam Intelligence Research</li><li>20% (₹60L) — Marketing & Customer Acquisition</li><li>10% (₹30L) — Team Hiring</li><li>5% (₹15L) — Operations & Legal</li></ul>
+        <div class="slide-key">Target post-raise: 50K users · ₹2.5Cr ARR · Series A ready by Q4 2027</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 3: MARKET RESEARCH ══════════════════════════════════════════ -->
+<div class="section" id="s3">
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <div class="section-title-block">
+      <h2>Market Research Report</h2>
+      <p>Industry overview, market sizing, competitive landscape, and growth drivers</p>
+    </div>
+  </div>
+
+  <h3>Industry Overview</h3>
+  <p>India's competitive examination ecosystem is unique in scale and intensity. The government sector absorbs millions of new employees annually across central and state-level organisations. Historically, coaching was dominated by physical institutes in Kota, Delhi, Allahabad, and Hyderabad. Digital disruption since 2016 has shifted a significant portion of this to online platforms, driven by increasing smartphone and internet penetration (India had 954 million internet subscribers as of March 2024), cheap data via Jio, and COVID-19-accelerated digital adoption.</p>
+  <p>The government job examination segment is the second-largest sub-segment of India's test preparation industry after Engineering/Medical entrance exams. Key exam bodies include the Staff Selection Commission (SSC), Institute of Banking Personnel Selection (IBPS), Indian Railways, Union Public Service Commission (UPSC), and over 50 State Public Service Commissions.</p>
+
+  <h3>Market Size & Growth</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Market Segment</th><th>2025 Size</th><th>2030 Projected</th><th>CAGR</th><th>ExamPrime Relevance</th></tr></thead>
+      <tbody>
+        <tr><td>India Total Test Prep (Online + Offline)</td><td>₹8,500 Crore</td><td>₹14,000 Crore</td><td>10.5%</td><td><span class="tag-blue">TAM</span></td></tr>
+        <tr><td>Online Test Prep (Digital Only)</td><td>₹3,200 Crore</td><td>₹5,800 Crore</td><td>12.6%</td><td><span class="tag-orange">High</span></td></tr>
+        <tr><td>Govt Exam Prep (SSC/Banking/Railways/Defence)</td><td>₹2,200 Crore</td><td>₹4,100 Crore</td><td>13.3%</td><td><span class="tag-blue">SAM</span></td></tr>
+        <tr><td>AI-Driven / Precision Prep Segment</td><td>₹80 Crore</td><td>₹900 Crore</td><td>62%+</td><td><span class="tag-green">Direct</span></td></tr>
+        <tr><td>Tier 2/3 City Online Prep</td><td>₹900 Crore</td><td>₹2,000 Crore</td><td>17.3%</td><td><span class="tag-orange">Priority</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Key Market Trends</h3>
+  <div class="feature-grid">
+    <div class="feature-card"><div class="icon">📱</div><h4>Mobile-First Dominance</h4><p>Over 70% of government exam aspirants access preparation content via smartphone. Hindi-medium and regional language demand is surging — Adda247 saw 60%+ paid subscriber growth driven by vernacular strategies in FY24.</p></div>
+    <div class="feature-card"><div class="icon">🤖</div><h4>AI & Personalization</h4><p>AI-based adaptive learning and assessment tools are growing rapidly. The market is shifting from passive content consumption to active intelligence-driven preparation. Strategic decision-making now deeply factors in AI-based assessment tools in education.</p></div>
+    <div class="feature-card"><div class="icon">🏙️</div><h4>Tier 2/3 Penetration</h4><p>60% of SSC, Banking, and Railway aspirants are from Tier 2/3/4 cities. Internet access in rural India crossed 398 million subscribers. These students cannot afford coaching and are the fastest-growing online prep cohort.</p></div>
+    <div class="feature-card"><div class="icon">📉</div><h4>Coaching Institute Fatigue</h4><p>Post-Byju's collapse, aspirants are increasingly skeptical of expensive, long-duration courses. Demand is rising for outcome-linked, modular, pay-per-need tools — exactly what ExamPrime provides.</p></div>
+  </div>
+
+  <h3>Exam Volume & Aspirant Data</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Exam Category</th><th>Annual Applicants</th><th>Approx. Seats</th><th>Competition Ratio</th><th>Avg. Prep Spend/Year</th></tr></thead>
+      <tbody>
+        <tr><td>SSC (CGL, CHSL, MTS, GD)</td><td>35M+</td><td>~80,000</td><td>437:1</td><td>₹5,000–₹25,000</td></tr>
+        <tr><td>Banking (IBPS, SBI, RBI)</td><td>8M+</td><td>~30,000</td><td>266:1</td><td>₹8,000–₹40,000</td></tr>
+        <tr><td>Railways (RRB, RPF)</td><td>10M+</td><td>~50,000</td><td>200:1</td><td>₹3,000–₹15,000</td></tr>
+        <tr><td>Defence (NDA, CDS, AFCAT)</td><td>5M+</td><td>~5,000</td><td>1000:1</td><td>₹10,000–₹50,000</td></tr>
+        <tr><td>UPSC Civil Services</td><td>1.3M+</td><td>1,056</td><td>1250:1</td><td>₹30,000–₹2,00,000</td></tr>
+        <tr><td>State PSCs (30+ commissions)</td><td>20M+</td><td>Variable</td><td>100–500:1</td><td>₹5,000–₹30,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Growth Opportunities</h3>
+  <ul class="bullet">
+    <li><strong>Vernacular Expansion:</strong> Hindi, Tamil, Telugu, Marathi, Bengali interfaces to capture Tier 2/3 demand.</li>
+    <li><strong>State PSC White-Label:</strong> Provide the Master Paper + Three Mock Framework branded for 30+ state PSC exams — multiplying addressable market 10×.</li>
+    <li><strong>Corporate Upskilling:</strong> Government contractors and PSUs require GATE, GRE-equivalent prepared talent — B2B angle for ExamPrime's intelligence layer.</li>
+    <li><strong>Offline Integration:</strong> Partnerships with physical coaching centers to power their content with ExamPrime's AI predictions (SaaS licensing model).</li>
+  </ul>
+
+  <h3>Market Risks</h3>
+  <ul class="bullet">
+    <li>Incumbents (Adda247, Testbook) could launch a "precision prep" feature set.</li>
+    <li>Government policy changes that reduce exam frequency or consolidate exam bodies.</li>
+    <li>Price sensitivity in Tier 2/3 markets may limit ARPU upside.</li>
+    <li>Content accuracy risk — incorrect "predictions" could damage trust rapidly.</li>
+  </ul>
+
+  <h3>Competitor Landscape Summary</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Company</th><th>Revenue (FY24)</th><th>Users</th><th>Focus</th><th>Funding</th><th>ExamPrime Threat Level</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Adda247</strong></td><td>₹243 Crore</td><td>40M active</td><td>Govt exams</td><td>$64M (Google-backed)</td><td><span class="tag-red">High</span></td></tr>
+        <tr><td><strong>Testbook</strong></td><td>~₹200Cr est.</td><td>30M+</td><td>Govt exams</td><td>$65M+</td><td><span class="tag-red">High</span></td></tr>
+        <tr><td><strong>Unacademy</strong></td><td>₹988 Crore</td><td>70M+</td><td>Broad EdTech</td><td>$800M+</td><td><span class="tag-orange">Medium</span></td></tr>
+        <tr><td><strong>Oliveboard</strong></td><td>~₹50Cr est.</td><td>10M+</td><td>Banking/SSC</td><td>Bootstrapped</td><td><span class="tag-orange">Medium</span></td></tr>
+        <tr><td><strong>ExamPrime</strong></td><td>Pre-revenue</td><td>MVP live</td><td>Precision Prep</td><td>Seeking ₹3Cr</td><td><span class="tag-green">Differentiated</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 4: TARGET AUDIENCE ══════════════════════════════════════════ -->
+<div class="section" id="s4">
+  <div class="section-header">
+    <div class="section-num">04</div>
+    <div class="section-title-block">
+      <h2>Target Audience Analysis</h2>
+      <p>Demographics, psychographics, pain points, and detailed customer personas</p>
+    </div>
+  </div>
+
+  <h3>Demographics</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Attribute</th><th>Profile</th></tr></thead>
+      <tbody>
+        <tr><td>Age Range</td><td>18–32 years (core: 20–27)</td></tr>
+        <tr><td>Gender Split</td><td>~62% Male · 38% Female (shifting toward parity in banking exams)</td></tr>
+        <tr><td>Geography</td><td>Tier 1 (20%) · Tier 2 (40%) · Tier 3/Rural (40%)</td></tr>
+        <tr><td>Education</td><td>Graduate or Pursuing Graduation (80%) · 12th Pass (20%)</td></tr>
+        <tr><td>Monthly Household Income</td><td>₹15,000–₹60,000 (lower-middle to middle class)</td></tr>
+        <tr><td>Device Usage</td><td>Mobile-first (72%) · Desktop (18%) · Tablet (10%)</td></tr>
+        <tr><td>Language Preference</td><td>Hindi (55%) · English (25%) · Regional (20%)</td></tr>
+        <tr><td>Exam Category</td><td>SSC (40%) · Banking (22%) · Railways (18%) · Defence (10%) · Others (10%)</td></tr>
+        <tr><td>Preparation Phase</td><td>Active preparing (60%) · About to appear (25%) · Repeat taker (15%)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Psychographics</h3>
+  <ul class="bullet">
+    <li><strong>Goal-Driven:</strong> A government job represents stability, social status, and family pride — motivation is extremely high.</li>
+    <li><strong>Time-Constrained:</strong> Many aspirants also work part-time, manage family duties, or juggle college — they need efficient, not extensive, preparation.</li>
+    <li><strong>Financially Cautious:</strong> Spending ₹500 on a coaching product is a real decision; value-for-money framing is critical.</li>
+    <li><strong>Community-Oriented:</strong> Aspirants heavily use Telegram groups, YouTube comments, and WhatsApp to share resources and tips.</li>
+    <li><strong>Anxious & Urgency-Prone:</strong> Exam anxiety is high, especially in the last 30 days. "What to study NOW" is the defining question.</li>
+    <li><strong>Pattern-Aware:</strong> Experienced aspirants study PYQs (Previous Year Questions) obsessively — they already understand the concept of pattern recognition.</li>
+  </ul>
+
+  <h3>Customer Pain Points</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Pain Point</th><th>Severity</th><th>Current Workaround</th><th>ExamPrime Solution</th></tr></thead>
+      <tbody>
+        <tr><td>No prioritization framework for final 15–30 days</td><td><span class="tag-red">Critical</span></td><td>Manually searching YouTube + PDFs</td><td>Master Paper</td></tr>
+        <tr><td>Too many mock tests, unclear which to focus on</td><td><span class="tag-red">Critical</span></td><td>Skip or random selection</td><td>Three Mock Framework</td></tr>
+        <tr><td>High cost of coaching (₹20K–₹80K)</td><td><span class="tag-red">High</span></td><td>Pirated PDFs, free YouTube</td><td>₹99–₹499 platform access</td></tr>
+        <tr><td>Can't predict which topics will come in exam</td><td><span class="tag-orange">High</span></td><td>Ask seniors, check forums</td><td>AI Prediction Engine</td></tr>
+        <tr><td>Content overload on existing platforms</td><td><span class="tag-orange">High</span></td><td>Use only 10% of purchased content</td><td>Curated, minimal content</td></tr>
+        <tr><td>No personalised revision plan for exam date</td><td><span class="tag-orange">Medium</span></td><td>Self-made schedules</td><td>Exam-date based smart plan (roadmap feature)</td></tr>
+        <tr><td>Bilingual / vernacular gap in premium content</td><td><span class="tag-orange">Medium</span></td><td>Use regional YouTube channels</td><td>Hindi + vernacular versions (Phase 2)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Buying Behaviour</h3>
+  <ul class="bullet">
+    <li>Purchases are triggered by exam notification dates or when results confirm upcoming attempt.</li>
+    <li>Word-of-mouth from successful aspirants is the #1 acquisition driver in this segment.</li>
+    <li>Low price points (₹99–₹499) see impulse buying; above ₹1,000 requires peer recommendation or free trial.</li>
+    <li>UPI and free trial are mandatory conversion tools for this demographic.</li>
+    <li>Students compare across 2–3 platforms before purchasing; trust signals matter greatly.</li>
+  </ul>
+
+  <h3>User Journey</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot-col"><div class="timeline-dot">1</div><div class="timeline-line"></div></div>
+      <div class="timeline-content"><div class="quarter">TRIGGER</div><h4>Exam Notification Released</h4><p>Student sees SSC/IBPS/RRB notification. Starts looking for preparation resources via YouTube, Telegram, Google.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot-col"><div class="timeline-dot">2</div><div class="timeline-line"></div></div>
+      <div class="timeline-content"><div class="quarter">DISCOVERY</div><h4>Discovers ExamPrime</h4><p>Finds ExamPrime through YouTube Shorts, Telegram channel, or referred by a peer who used the Master Paper.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot-col"><div class="timeline-dot">3</div><div class="timeline-line"></div></div>
+      <div class="timeline-content"><div class="quarter">ACTIVATION</div><h4>Tries Free Sample</h4><p>Downloads one free Master Paper sample. Attempts it. Sees the quality and precision — recognizes it as genuinely different from other platforms.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot-col"><div class="timeline-dot">4</div><div class="timeline-line"></div></div>
+      <div class="timeline-content"><div class="quarter">CONVERSION</div><h4>Purchases Exam Bundle (₹499)</h4><p>Buys the complete bundle for their target exam. Solves Master Paper + 3 Mocks in their final 2–3 weeks before exam day.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot-col"><div class="timeline-dot">5</div><div class="timeline-line"></div></div>
+      <div class="timeline-content"><div class="quarter">RETENTION</div><h4>Appears for Exam, Gets Result</h4><p>If successful → vocal evangelist. If exam is repeated → repurchases for next exam cycle. Refers peers. Joins ExamPrime community.</p></div>
+    </div>
+  </div>
+
+  <h3>Detailed Customer Personas</h3>
+  <div class="persona-grid">
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="persona-avatar">👨‍🎓</div>
+        <div><div class="persona-name">Rohit Kumar</div><div class="persona-role">The Last-Mile Aspirant · Age 23 · Patna</div></div>
+      </div>
+      <div class="persona-body">
+        <p>SSC CGL aspirant in his second attempt. Exam in 25 days. Panicked. Has 3 different platforms subscriptions he barely uses. Wants ONE thing: "Tell me exactly what to study in these 25 days."</p>
+        <p><strong>Pays:</strong> ₹299–₹499 for the SSC Master Paper + 3 Mock Bundle.</p>
+        <div class="persona-tag-list"><span class="persona-tag">Time-crunched</span><span class="persona-tag">High anxiety</span><span class="persona-tag">Mobile-first</span><span class="persona-tag">Hindi medium</span><span class="persona-tag">UPI user</span></div>
+      </div>
+    </div>
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="persona-avatar">👩‍💼</div>
+        <div><div class="persona-name">Priya Sharma</div><div class="persona-role">The Repeat Taker · Age 26 · Lucknow</div></div>
+      </div>
+      <div class="persona-body">
+        <p>IBPS PO aspirant on her 3rd attempt. Has completed multiple Unacademy courses. Feels she's studying a lot but not improving. Looking for a smarter, not harder, approach to preparation.</p>
+        <p><strong>Pays:</strong> ₹499/month subscription for banking series + AI predictions.</p>
+        <div class="persona-tag-list"><span class="persona-tag">Data-driven</span><span class="persona-tag">Frustrated</span><span class="persona-tag">Smart spender</span><span class="persona-tag">Shares on WhatsApp</span></div>
+      </div>
+    </div>
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="persona-avatar">👦</div>
+        <div><div class="persona-name">Suresh Yadav</div><div class="persona-role">The Budget Preparer · Age 21 · Gorakhpur</div></div>
+      </div>
+      <div class="persona-body">
+        <p>First-generation college student. Railways Group D aspirant. Family income ₹20K/month. Cannot afford ₹30K coaching. Relies on YouTube and free PDFs. Willing to pay ₹100–₹200 for the right tool.</p>
+        <p><strong>Pays:</strong> ₹99/month or ₹149 per paper purchase.</p>
+        <div class="persona-tag-list"><span class="persona-tag">Price-sensitive</span><span class="persona-tag">YouTube native</span><span class="persona-tag">Telegram active</span><span class="persona-tag">First-gen learner</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 5: PRD ══════════════════════════════════════════ -->
+<div class="section" id="s5">
+  <div class="section-header">
+    <div class="section-num">05</div>
+    <div class="section-title-block">
+      <h2>Product Requirements Document</h2>
+      <p>Vision, features, user stories, functional and non-functional requirements</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Product Vision:</strong> ExamPrime will be the single most powerful exam preparation tool a government exam aspirant uses in their final 30 days before any exam — delivering the highest probability questions, patterns, and insights in the most minimal, distraction-free interface possible.</p>
+  </div>
+
+  <h3>Product Objectives</h3>
+  <ul class="bullet">
+    <li>Enable an aspirant to complete high-quality exam preparation in under 15 days using just 3 papers.</li>
+    <li>Achieve a 3× higher prediction accuracy rate vs. randomly studying from full syllabus.</li>
+    <li>Deliver a mobile-first, sub-3-second loading experience for Tier 2/3 users on 4G.</li>
+    <li>Build an admin content pipeline capable of producing Master Papers for 50 exams within 12 months.</li>
+  </ul>
+
+  <h3>Core Feature Set</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Description</th><th>Priority</th><th>Phase</th></tr></thead>
+      <tbody>
+        <tr><td>Master Paper Viewer</td><td>Interactive timed exam paper with MCQ interface, solution explanations, and topic tagging</td><td><span class="tag-red">P0 – Must Have</span></td><td>MVP</td></tr>
+        <tr><td>Three Mock Framework</td><td>Three themed mock tests per exam: Core, Trend, Full Simulation</td><td><span class="tag-red">P0</span></td><td>MVP</td></tr>
+        <tr><td>User Authentication</td><td>Register/Login/Forgot Password with email + OTP</td><td><span class="tag-red">P0</span></td><td>MVP</td></tr>
+        <tr><td>Exam Dashboard</td><td>Browse available exams, see paper availability, access purchased content</td><td><span class="tag-red">P0</span></td><td>MVP</td></tr>
+        <tr><td>Admin Panel</td><td>Exam/paper CRUD, user management, analytics overview</td><td><span class="tag-red">P0</span></td><td>MVP</td></tr>
+        <tr><td>Payment Integration</td><td>Razorpay/UPI for per-paper and subscription purchases</td><td><span class="tag-red">P0</span></td><td>Phase 1</td></tr>
+        <tr><td>AI Prediction Feed</td><td>Exam-specific topic predictions with probability scores and rationale</td><td><span class="tag-orange">P1</span></td><td>Phase 1</td></tr>
+        <tr><td>Performance Analytics</td><td>Score tracking, topic-wise accuracy, percentile ranking</td><td><span class="tag-orange">P1</span></td><td>Phase 1</td></tr>
+        <tr><td>Bookmark & Notes</td><td>Save important questions, add personal notes</td><td><span class="tag-orange">P1</span></td><td>Phase 1</td></tr>
+        <tr><td>Hindi/Regional Language UI</td><td>Full UI and content translation for Hindi, Tamil, Telugu</td><td><span class="tag-blue">P2</span></td><td>Phase 2</td></tr>
+        <tr><td>Adaptive Revision Engine</td><td>AI-based weak-topic identification and targeted revision sets</td><td><span class="tag-blue">P2</span></td><td>Phase 2</td></tr>
+        <tr><td>Native Mobile App (Android)</td><td>Offline-capable Android app with push notifications</td><td><span class="tag-blue">P2</span></td><td>Phase 2</td></tr>
+        <tr><td>Community & Leaderboard</td><td>Peer ranking, exam community, success story sharing</td><td><span class="tag-green">P3</span></td><td>Phase 3</td></tr>
+        <tr><td>Institutional API</td><td>White-label API for coaching institutes to embed ExamPrime intelligence</td><td><span class="tag-green">P3</span></td><td>Phase 3</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Functional Requirements</h3>
+  <ul class="bullet">
+    <li>The Master Paper Viewer must support MCQ with single and multi-correct answers, timer, auto-submit, and immediate solution display.</li>
+    <li>Users must be able to attempt any purchased paper in a distraction-free full-screen mode on mobile and desktop.</li>
+    <li>The AI Prediction Feed must display topic predictions with a confidence percentage and historical exam data backing each prediction.</li>
+    <li>Admin must be able to create, edit, publish, and schedule papers linked to exam calendars within 10 minutes per paper.</li>
+    <li>All financial transactions must be logged, reconciled, and exportable via the admin panel.</li>
+  </ul>
+
+  <h3>Non-Functional Requirements</h3>
+  <ul class="bullet">
+    <li><strong>Performance:</strong> Page load under 2 seconds on 4G. Paper load under 3 seconds.</li>
+    <li><strong>Availability:</strong> 99.5% uptime SLA — critical during exam notification periods (peak traffic 10×).</li>
+    <li><strong>Security:</strong> Encrypted user data, HTTPS everywhere, no PII leaks, compliant with IT Act 2000.</li>
+    <li><strong>Scalability:</strong> Architecture must support 100,000 concurrent users without degradation.</li>
+    <li><strong>Accessibility:</strong> WCAG 2.1 AA compliance for inclusive access.</li>
+  </ul>
+
+  <h3>User Stories (Selected)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>As a…</th><th>I want to…</th><th>So that…</th></tr></thead>
+      <tbody>
+        <tr><td>Government exam aspirant</td><td>Access the Master Paper for SSC CGL 2026</td><td>I can study the highest-probability questions in one session</td></tr>
+        <tr><td>First-time user</td><td>Try a free sample paper without signing up</td><td>I can evaluate quality before paying</td></tr>
+        <tr><td>Repeat taker</td><td>See my mock test scores compared to previous attempts</td><td>I can track my improvement over time</td></tr>
+        <tr><td>Admin/Content team</td><td>Upload a new exam paper in under 10 minutes</td><td>We can scale content creation across 50+ exams</td></tr>
+        <tr><td>Mobile user in Tier 3 city</td><td>Access my purchased papers offline</td><td>I can study without internet dependency</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Success Metrics</h3>
+  <div class="stat-row">
+    <div class="stat-card"><div class="big"><span>80</span>%</div><div class="label">Paper Completion Rate</div><div class="sub">Users who start the Master Paper should finish it</div></div>
+    <div class="stat-card"><div class="big"><span>40</span>%</div><div class="label">Free-to-Paid Conversion</div><div class="sub">Users who try free sample → purchase</div></div>
+    <div class="stat-card"><div class="big"><span>70</span>%</div><div class="label">Month-1 Retention</div><div class="sub">Users who return after first purchase</div></div>
+    <div class="stat-card"><div class="big"><span>4.5</span>★</div><div class="label">App Store Rating</div><div class="sub">Target rating on Google Play by Month 12</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 6: PRODUCT ROADMAP ══════════════════════════════════════════ -->
+<div class="section" id="s6">
+  <div class="section-header">
+    <div class="section-num">06</div>
+    <div class="section-title-block">
+      <h2>Product Roadmap</h2>
+      <p>From MVP to venture-scale platform across four development phases</p>
+    </div>
+  </div>
+
+  <div class="phase-block">
+    <div class="phase-tag">✅ Current — MVP (Live)</div>
+    <h4>MVP Features ()</h4>
+    <ul>
+      <li>User authentication (register, login, forgot password, reset password)</li>
+      <li>Exam listing dashboard with exam detail pages</li>
+      <li>Paper Viewer — interactive MCQ paper with timed interface</li>
+      <li>Admin panel — exam management, paper management, user management, analytics</li>
+      <li>Core content: First batch of Master Papers and mock papers for target exams</li>
+    </ul>
+  </div>
+
+  <div class="phase-block">
+    <div class="phase-tag">🔵 Phase 1 — Q3–Q4 2026 (0–6 Months Post-Seed)</div>
+    <h4>Monetization & AI Foundation</h4>
+    <ul>
+      <li>Payment gateway integration (Razorpay, PhonePe, UPI)</li>
+      <li>Subscription management + per-paper purchase flows</li>
+      <li>AI Prediction Engine v1 — topic-frequency analysis and probability scoring</li>
+      <li>Performance analytics dashboard for users (score history, topic accuracy, percentile)</li>
+      <li>Exam coverage expansion: SSC CGL, IBPS PO, RRB NTPC, SBI Clerk, NDA — 15 exams</li>
+      <li>WhatsApp/Telegram community integration for exam updates</li>
+      <li>Bookmark and notes feature</li>
+      <li>Mobile web optimization (PWA)</li>
+    </ul>
+  </div>
+
+  <div class="phase-block">
+    <div class="phase-tag">🟠 Phase 2 — Q1–Q2 2027 (6–18 Months Post-Seed)</div>
+    <h4>Scale & Language Expansion</h4>
+    <ul>
+      <li>Native Android App (offline-capable, push notifications)</li>
+      <li>Hindi language UI and bilingual content for all top exams</li>
+      <li>Adaptive Revision Engine — AI identifies weak topics, generates targeted revision questions</li>
+      <li>State PSC expansion: BPSC, UPPSC, MPSC, KPSC — 20+ state exams</li>
+      <li>Referral program + loyalty rewards</li>
+      <li>Institutional dashboard — coaching institutes can purchase bulk access</li>
+      <li>Email/SMS exam reminder and preparation calendar integration</li>
+      <li>Exam prediction accuracy reporting (post-exam analysis of how many predictions came true)</li>
+    </ul>
+  </div>
+
+  <div class="phase-block">
+    <div class="phase-tag">🟡 Phase 3 — Q3 2027–Q2 2028 (18–30 Months)</div>
+    <h4>Intelligence Platform & B2B Layer</h4>
+    <ul>
+      <li>iOS App</li>
+      <li>AI Prediction Engine v2 — NLP analysis of official exam notices and emerging syllabus changes</li>
+      <li>White-label API for coaching institutes (B2B SaaS product)</li>
+      <li>Community & peer leaderboard — gamification layer</li>
+      <li>UPSC Prelims series (high-value, premium pricing ₹999–₹2,999)</li>
+      <li>Regional language content: Tamil, Telugu, Marathi, Bengali</li>
+      <li>Corporate placement / upskilling B2B product (for companies hiring govt sector workers)</li>
+    </ul>
+  </div>
+
+  <div class="phase-block">
+    <div class="phase-tag">🟢 Long-Term Vision — 2028 and Beyond</div>
+    <h4>Exam Intelligence Platform at National Scale</h4>
+    <ul>
+      <li>Expand to GATE, CAT, and professional certification exams (actuarial, CA Foundation)</li>
+      <li>International expansion: Bangladesh, Sri Lanka, Nepal government exam markets</li>
+      <li>ExamPrime Intelligence API — sell prediction data to coaching institutes, publishers, and edtech platforms</li>
+      <li>Full AI-tutor integration — chat-based doubt resolution powered by exam-specific LLMs</li>
+      <li>IPO readiness: 5M+ paying users, ₹200Cr+ ARR, EBITDA positive</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 7: BUSINESS MODEL CANVAS ══════════════════════════════════════════ -->
+<div class="section" id="s7">
+  <div class="section-header">
+    <div class="section-num">07</div>
+    <div class="section-title-block">
+      <h2>Business Model Canvas</h2>
+      <p>Complete 9-block Business Model Canvas for ExamPrime</p>
+    </div>
+  </div>
+
+  <div class="bmc-grid">
+    <div class="bmc-cell">
+      <h4>🤝 Key Partners</h4>
+      <ul>
+        <li>Exam subject matter experts (retired teachers, toppers)</li>
+        <li>Payment gateway providers (Razorpay, Cashfree)</li>
+        <li>Cloud infrastructure (AWS / GCP)</li>
+        <li>YouTube & Telegram exam influencers</li>
+        <li>Coaching institute chains (B2B partners)</li>
+        <li>State PSC exam bodies (content licensing)</li>
+        <li>AI/ML model providers (OpenAI, open-source LLMs)</li>
+      </ul>
+    </div>
+    <div class="bmc-cell bmc-vp">
+      <h4>💎 Value Propositions</h4>
+      <ul>
+        <li>"Study What Matters Most. Not More."</li>
+        <li>Master Paper: entire exam in one high-probability paper</li>
+        <li>Three Mock Framework: maximum coverage, minimum effort</li>
+        <li>AI Predictions: know likely topics before exam day</li>
+        <li>10× cheaper than offline coaching</li>
+        <li>Built for the last 30 days before any exam</li>
+        <li>Distraction-free, precision-first interface</li>
+      </ul>
+    </div>
+    <div class="bmc-cell">
+      <h4>👥 Customer Segments</h4>
+      <ul>
+        <li>SSC aspirants (35M+)</li>
+        <li>Banking aspirants (8M+)</li>
+        <li>Railways aspirants (10M+)</li>
+        <li>Defence aspirants (5M+)</li>
+        <li>State PSC aspirants (20M+)</li>
+        <li>Coaching institutes (B2B)</li>
+        <li>Colleges & universities (institutional)</li>
+      </ul>
+    </div>
+    <div class="bmc-cell">
+      <h4>⚙️ Key Activities</h4>
+      <ul>
+        <li>Historical exam data analysis & pattern mining</li>
+        <li>Master Paper creation and quality assurance</li>
+        <li>AI prediction engine training and improvement</li>
+        <li>Platform development and maintenance</li>
+        <li>Community building and influencer partnerships</li>
+        <li>Customer acquisition and retention</li>
+      </ul>
+    </div>
+    <div class="bmc-cell">
+      <h4>💬 Customer Relationships</h4>
+      <ul>
+        <li>Self-serve platform (primary)</li>
+        <li>Telegram & WhatsApp community</li>
+        <li>Email/SMS onboarding sequence</li>
+        <li>Peer leaderboards & achievements</li>
+        <li>Post-exam prediction accuracy reports</li>
+        <li>Success stories and social proof</li>
+      </ul>
+    </div>
+    <div class="bmc-cell">
+      <h4>🏗️ Key Resources</h4>
+      <ul>
+        <li>Proprietary question bank & pattern database (10+ years of PYQ analysis)</li>
+        <li>AI prediction algorithm</li>
+        <li>Expert content creation team</li>
+        <li>Technology platform (web + app)</li>
+        <li>Brand and community trust</li>
+        <li>User performance data</li>
+      </ul>
+    </div>
+    <div class="bmc-cell">
+      <h4>📢 Channels</h4>
+      <ul>
+        <li>Web platform ()</li>
+        <li>Android app (Phase 1)</li>
+        <li>Telegram channels & groups</li>
+        <li>YouTube (organic + paid)</li>
+        <li>Google Play / App Store</li>
+        <li>Referral program</li>
+        <li>Exam notification email/SMS</li>
+      </ul>
+    </div>
+    <div class="bmc-cell bmc-bottom">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div>
+          <h4>💸 Cost Structure</h4>
+          <ul>
+            <li>Technology infrastructure (AWS, APIs): 15%</li>
+            <li>Content creation (subject experts, writers): 25%</li>
+            <li>AI/ML model development & training: 10%</li>
+            <li>Marketing & customer acquisition: 20%</li>
+            <li>Salaries & human resources: 25%</li>
+            <li>Operations, legal, compliance: 5%</li>
+          </ul>
+        </div>
+        <div>
+          <h4>💰 Revenue Streams</h4>
+          <ul>
+            <li>Per-paper purchases (₹29–₹199)</li>
+            <li>Monthly subscriptions (₹99–₹299/month)</li>
+            <li>Exam bundles (₹499–₹1,499)</li>
+            <li>Annual plans (₹999–₹2,999/year)</li>
+            <li>Institutional/B2B licensing (₹50K–₹5L/year)</li>
+            <li>Data insights API (Phase 3)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 8: REVENUE MODEL ══════════════════════════════════════════ -->
+<div class="section" id="s8">
+  <div class="section-header">
+    <div class="section-num">08</div>
+    <div class="section-title-block">
+      <h2>Revenue Model</h2>
+      <p>Pricing strategy, revenue sources, unit economics, LTV and CAC analysis</p>
+    </div>
+  </div>
+
+  <h3>Pricing Strategy</h3>
+  <p>ExamPrime uses a <strong>freemium-to-premium ladder</strong> with low friction at every rung. The objective is to maximize the percentage of free users who experience the product's value within 10 minutes and convert.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Plan/Product</th><th>Price</th><th>Includes</th><th>Target User</th><th>Conversion Goal</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Free Sample</strong></td><td>₹0</td><td>1 Master Paper sample (20Q), 1 free mock attempt</td><td>New visitors, awareness</td><td>Lead generation</td></tr>
+        <tr><td><strong>Per-Paper</strong></td><td>₹49–₹149</td><td>1 Full Master Paper with solutions</td><td>Budget-conscious, first-time buyer</td><td>First transaction</td></tr>
+        <tr><td><strong>Exam Bundle</strong></td><td>₹299–₹499</td><td>Master Paper + 3 Mocks + AI Predictions for 1 exam</td><td>Core user, 1 exam target</td><td>Primary revenue driver</td></tr>
+        <tr><td><strong>Monthly Pass</strong></td><td>₹149–₹299</td><td>Unlimited access to all exams for 30 days</td><td>Multi-exam aspirants</td><td>Recurring revenue</td></tr>
+        <tr><td><strong>Annual Plan</strong></td><td>₹999–₹1,999</td><td>Full year, all exams, priority AI predictions</td><td>Serious multi-attempt aspirants</td><td>Highest LTV</td></tr>
+        <tr><td><strong>Institutional</strong></td><td>₹50K–₹5L/year</td><td>Bulk seats, white-label, custom exam packs, analytics</td><td>Coaching institutes, colleges</td><td>B2B revenue stream</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Unit Economics</h3>
+  <div class="stat-row">
+    <div class="stat-card"><div class="big">₹<span>180</span></div><div class="label">CAC Target</div><div class="sub">Customer Acquisition Cost via organic + paid blend</div></div>
+    <div class="stat-card"><div class="big">₹<span>900</span></div><div class="label">LTV (Year 1)</div><div class="sub">Based on ₹450 ARPU × 2 exam cycles</div></div>
+    <div class="stat-card"><div class="big"><span>5×</span></div><div class="label">LTV:CAC Ratio</div><div class="sub">Healthy SaaS benchmark is 3:1. We target 5:1</div></div>
+    <div class="stat-card"><div class="big">₹<span>450</span></div><div class="label">ARPU (Year 2)</div><div class="sub">Average Revenue Per User per year at scale</div></div>
+    <div class="stat-card"><div class="big"><span>65</span>%</div><div class="label">Gross Margin</div><div class="sub">Digital product with low marginal delivery cost</div></div>
+    <div class="stat-card"><div class="big"><span>30</span>%</div><div class="label">Annual Churn</div><div class="sub">Expected Year 1; target reduction to 18% by Year 3</div></div>
+  </div>
+
+  <h3>Revenue Sources Breakdown (Year 2 Projection)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Revenue Source</th><th>Users/Transactions</th><th>Avg. Value</th><th>Projected Revenue</th><th>% of Total</th></tr></thead>
+      <tbody>
+        <tr><td>Per-Paper Purchases</td><td>20,000</td><td>₹99</td><td>₹19.8L</td><td>9%</td></tr>
+        <tr><td>Exam Bundles (One-time)</td><td>25,000</td><td>₹399</td><td>₹99.75L</td><td>44%</td></tr>
+        <tr><td>Monthly Pass Subscriptions</td><td>8,000 × 3 months avg.</td><td>₹199/month</td><td>₹47.76L</td><td>21%</td></tr>
+        <tr><td>Annual Plans</td><td>3,000</td><td>₹1,299</td><td>₹38.97L</td><td>17%</td></tr>
+        <tr><td>Institutional (B2B)</td><td>15 institutes</td><td>₹1.2L avg.</td><td>₹18L</td><td>8%</td></tr>
+        <tr class="fin-highlight"><td><strong>Total Year 2</strong></td><td><strong>56,000+ users</strong></td><td><strong>~₹401 ARPU</strong></td><td><strong>₹2.25 Crore</strong></td><td><strong>100%</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Customer Lifetime Value Model</h3>
+  <p>Government exam aspirants are multi-cycle users — most appear for 2–5 exams per year over 2–5 years. This creates significant LTV if retention is managed well.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>User Type</th><th>Exams/Year</th><th>Spend/Exam</th><th>Annual Spend</th><th>Avg. Years</th><th>Total LTV</th></tr></thead>
+      <tbody>
+        <tr><td>Budget (Per Paper)</td><td>2</td><td>₹99</td><td>₹198</td><td>2</td><td>₹396</td></tr>
+        <tr><td>Core (Bundle)</td><td>3</td><td>₹399</td><td>₹1,197</td><td>2.5</td><td>₹2,992</td></tr>
+        <tr><td>Subscriber (Monthly)</td><td>6</td><td>₹199/mo</td><td>₹1,194</td><td>3</td><td>₹3,582</td></tr>
+        <tr><td>Annual Plan</td><td>Unlimited</td><td>₹1,499/yr</td><td>₹1,499</td><td>3</td><td>₹4,497</td></tr>
+        <tr class="fin-highlight"><td><strong>Blended Average</strong></td><td>—</td><td>—</td><td><strong>₹900</strong></td><td><strong>2.5</strong></td><td><strong>₹2,250</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 9: GTM ══════════════════════════════════════════ -->
+<div class="section" id="s9">
+  <div class="section-header">
+    <div class="section-num">09</div>
+    <div class="section-title-block">
+      <h2>Go-To-Market Strategy</h2>
+      <p>Positioning, channels, launch plan, and growth engine</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Positioning Statement:</strong> For government exam aspirants who are overwhelmed by content overload and time pressure, ExamPrime is the only exam intelligence platform that tells you exactly what to study — not how much — delivering maximum preparation efficiency through AI-predicted, precision-first papers for the people who don't have the luxury of unlimited study time.</p>
+  </div>
+
+  <h3>Phase-Wise Launch Plan</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Phase</th><th>Timeline</th><th>Goal</th><th>Key Actions</th><th>Budget</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Phase 0: Seed & Validate</strong></td><td>Month 1–2</td><td>500 beta users, 100 paid</td><td>Free beta to top 5 SSC Telegram groups (50K+ members), collect testimonials, iterate</td><td>₹0–₹5K (organic)</td></tr>
+        <tr><td><strong>Phase 1: Community-Led Growth</strong></td><td>Month 2–6</td><td>5,000 users, 1,000 paid</td><td>Partner 10 exam-niche YouTube/Telegram educators; free content share; referral program</td><td>₹2–₹5L</td></tr>
+        <tr><td><strong>Phase 2: Paid Acquisition</strong></td><td>Month 6–12</td><td>20,000 users, 8,000 paid</td><td>Meta + Google Ads (₹50–₹80 CPL), YouTube pre-rolls on exam prep channels, App Store ASO</td><td>₹10–₹15L</td></tr>
+        <tr><td><strong>Phase 3: Institutional & Scale</strong></td><td>Month 12–24</td><td>1,00,000 users, 50,000 paid</td><td>Direct sales to 100 coaching institutes, college tie-ups, B2B pipeline, Series A fundraise</td><td>₹30–₹50L</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Marketing Channels</h3>
+  <div class="feature-grid">
+    <div class="feature-card"><div class="icon">💬</div><h4>Telegram & WhatsApp</h4><p>India's #1 channel for exam aspirants. Thousands of groups with 10K–500K members share PDFs, tips, and resources. ExamPrime will be the "free Master Paper share" that organically spreads. Zero cost to start.</p></div>
+    <div class="feature-card"><div class="icon">▶️</div><h4>YouTube</h4><p>Partner with exam-focused YouTubers who have 1M–20M subscribers (e.g., Gagan Pratap, Rakesh Yadav, Mahendra's). Sponsored content: "I used ExamPrime's Master Paper — here's what happened." Extremely high trust factor.</p></div>
+    <div class="feature-card"><div class="icon">🎯</div><h4>Performance Marketing</h4><p>Meta and Google Ads targeting aspirants by exam-intent keywords (e.g., "SSC CGL preparation 2026"). CPL target ₹50–₹80. Retarget free trial users aggressively within 7 days of first visit.</p></div>
+    <div class="feature-card"><div class="icon">🔗</div><h4>Referral Program</h4><p>"Refer and Earn" — refer a paying friend, get your next exam bundle free. Aspirant communities are tight-knit. One happy user in a study group drives 5–10 others. This is the most cost-effective acquisition engine.</p></div>
+  </div>
+
+  <h3>Sales Strategy</h3>
+  <ul class="bullet">
+    <li><strong>B2C:</strong> Self-serve model — users browse, trial, and purchase without a sales person. Conversion optimised through in-product nudges, urgency (exam countdown), and social proof.</li>
+    <li><strong>B2B Coaching Institutes:</strong> Outbound sales team targets top 500 coaching institutes in 50 cities. Offer bulk licences at ₹50K–₹3L/year. Demo the Master Paper as a differentiator for their students.</li>
+    <li><strong>College Partnerships:</strong> Partner with undergraduate colleges in Tier 2 cities that have large populations of government exam aspirants. Subsidized or bulk access deals.</li>
+  </ul>
+
+  <h3>Key Partnerships</h3>
+  <ul class="bullet">
+    <li><strong>Influencer Educators:</strong> Paid partnerships with 10–20 exam YouTubers for authentic endorsements.</li>
+    <li><strong>Telegram Group Admins:</strong> Revenue-share affiliate model — admins share ExamPrime links and earn 20% commission per sale.</li>
+    <li><strong>Coaching Institute Chains:</strong> Vidya Guru, Paramount SSC, Mahendra's, Pinnacle — integrate ExamPrime as a "smart prep add-on."</li>
+    <li><strong>EdTech B2B Platforms:</strong> Integrate ExamPrime Intelligence API into existing platforms (Adda247 for enterprise, Coursera for Government Skills).</li>
+  </ul>
+
+  <h3>Growth Loops</h3>
+  <div class="callout-light">
+    <p><strong>🔄 Viral Loop:</strong> Student uses Master Paper → Gets better score → Shares result in Telegram/WhatsApp group → Group members download free sample → Some convert to paid → More success stories → Wider sharing. This is a flywheel. Every exam cycle adds velocity.</p>
+  </div>
+  <div class="callout-light">
+    <p><strong>📅 Calendar Loop:</strong> India has 200+ government exam notifications per year. Every exam notification is a trigger event for ExamPrime — push notification + email + Telegram post announcing "SSC CGL Master Paper is live." Each new exam is a new revenue event.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 10: COMPETITIVE ANALYSIS ══════════════════════════════════════════ -->
+<div class="section" id="s10">
+  <div class="section-header">
+    <div class="section-num">10</div>
+    <div class="section-title-block">
+      <h2>Competitive Analysis</h2>
+      <p>Direct and indirect competitors, SWOT, competitive matrix, and market gap</p>
+    </div>
+  </div>
+
+  <h3>Competitive Matrix</h3>
+  <div class="table-wrap">
+    <table class="vs-table">
+      <thead><tr><th>Feature / Attribute</th><th>ExamPrime</th><th>Adda247</th><th>Testbook</th><th>Unacademy</th><th>Oliveboard</th></tr></thead>
+      <tbody>
+        <tr><td>AI Exam Prediction Engine</td><td class="check">✓ Core Feature</td><td class="cross">✗</td><td class="partial">≈ Basic</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+        <tr><td>Master Paper (1-paper = full syllabus)</td><td class="check">✓ Proprietary</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+        <tr><td>Precision (Low Mock Count, High Quality)</td><td class="check">✓ 3 Mocks Only</td><td class="cross">✗ 100+ mocks</td><td class="cross">✗ 50–100 mocks</td><td class="cross">✗ 50+ mocks</td><td class="cross">✗ 40+ mocks</td></tr>
+        <tr><td>Price-to-Value (₹499 full bundle)</td><td class="check">✓ Best-in-class</td><td class="partial">≈ ₹1,000–₹5,000</td><td class="partial">≈ ₹700–₹3,000</td><td class="cross">✗ ₹2,000–₹15,000</td><td class="partial">≈ ₹500–₹2,500</td></tr>
+        <tr><td>Govt Exam Focus (only)</td><td class="check">✓ Specialized</td><td class="check">✓</td><td class="check">✓</td><td class="cross">✗ Broad</td><td class="check">✓</td></tr>
+        <tr><td>Designed for Last 30 Days</td><td class="check">✓ Core Design</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+        <tr><td>Mobile Web PWA (No App Required)</td><td class="check">✓</td><td class="partial">≈ App required</td><td class="partial">≈ App required</td><td class="partial">≈ App required</td><td class="partial">≈ App required</td></tr>
+        <tr><td>Tier 2/3 Optimized (Speed & Price)</td><td class="check">✓ Designed for</td><td class="partial">≈ Improving</td><td class="partial">≈ Average</td><td class="cross">✗ Urban-focused</td><td class="partial">≈ Average</td></tr>
+        <tr><td>Live Classes / Video Lectures</td><td class="cross">✗ Not offered</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="partial">≈ Limited</td></tr>
+        <tr><td>VC Funding</td><td class="cross">✗ Pre-seed</td><td class="check">✓ $64M</td><td class="check">✓ $65M+</td><td class="check">✓ $800M+</td><td class="cross">✗ Bootstrapped</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Direct Competitors</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Competitor</th><th>Strengths</th><th>Weaknesses</th><th>ExamPrime Differentiation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Adda247</strong><br><small>Google-backed, ₹243Cr FY24</small></td><td>Scale, brand, vernacular content, 40M users</td><td>Content overload, no precision layer, high churn, expensive</td><td>10× cheaper, precision-first, AI predictions, no video bloat</td></tr>
+        <tr><td><strong>Testbook</strong><br><small>$65M+ raised, profitable since 2019</small></td><td>Strong test series, profitability-focused, wide exam coverage</td><td>No prediction engine, overwhelming volume, subscription fatigue</td><td>Master Paper concept, 3-mock framework, prediction-led design</td></tr>
+        <tr><td><strong>Unacademy</strong><br><small>₹988Cr revenue, $3.4B valuation</small></td><td>Educator marketplace, strong brand, live classes</td><td>Extremely expensive, not precision-focused, loss-making</td><td>Purpose-built for govt exams, fraction of the cost, efficiency</td></tr>
+        <tr><td><strong>Oliveboard</strong><br><small>Bootstrapped, profitable, banking focus</small></td><td>Banking/SSC specialist, strong test series, affordable</td><td>No AI predictions, no "last-mile" focus, limited brand</td><td>Prediction engine, Master Paper concept, better positioning</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Indirect Competitors</h3>
+  <ul class="bullet">
+    <li><strong>Physical Coaching Centres:</strong> Still dominant in offline markets (Kota, Delhi, Allahabad). Higher cost but higher trust. ExamPrime is a complement, not a replacement.</li>
+    <li><strong>YouTube Free Content:</strong> Gagan Pratap, Rakesh Yadav, Mahendra's — free but unstructured and non-personalized. ExamPrime's free sample and then paid precision layer converts users who outgrow free content.</li>
+    <li><strong>Telegram PDF Channels:</strong> Widely used, completely free, but zero personalization and zero prediction intelligence. ExamPrime is the upgrade.</li>
+    <li><strong>Printed Books (Arihant, Kiran):</strong> High trust, widely used, but not adaptive, not AI-driven. ExamPrime will eventually partner with publishers for digital companion products.</li>
+  </ul>
+
+  <h3>SWOT Analysis</h3>
+  <div class="swot-grid">
+    <div class="swot-box s">
+      <h4>Strengths</h4>
+      <ul>
+        <li>Unique "precision over quantity" positioning with no direct competitor</li>
+        <li>Proprietary Master Paper and Three Mock Framework methodology</li>
+        <li>MVP already live and functional ()</li>
+        <li>Extremely low pricing creating wide accessibility</li>
+        <li>Deep understanding of aspirant pain points and exam ecosystem</li>
+        <li>Low content delivery cost (digital = 65%+ gross margin)</li>
+      </ul>
+    </div>
+    <div class="swot-box w">
+      <h4>Weaknesses</h4>
+      <ul>
+        <li>Pre-revenue, no paying user validation yet</li>
+        <li>No native app (mobile web only at MVP stage)</li>
+        <li>Small team — execution bandwidth is limited</li>
+        <li>Brand awareness: zero vs. incumbents with 40M+ users</li>
+        <li>Content creation is resource-intensive to scale to 50+ exams</li>
+        <li>No live classes (trust gap vs. Adda247/Testbook)</li>
+      </ul>
+    </div>
+    <div class="swot-box o">
+      <h4>Opportunities</h4>
+      <ul>
+        <li>AI-driven precision prep is an uncaptured white space in India</li>
+        <li>50M+ aspirants, only ~5M on paid platforms — massive conversion runway</li>
+        <li>State PSC expansion — 30+ exams, largely underserved</li>
+        <li>Institutional B2B: 50,000+ coaching institutes in India</li>
+        <li>Vernacular (Hindi/regional) content gap among precision-prep tools</li>
+        <li>Post-Byju's skepticism opens market for affordable, outcome-focused tools</li>
+      </ul>
+    </div>
+    <div class="swot-box t">
+      <h4>Threats</h4>
+      <ul>
+        <li>Adda247/Testbook could clone the Master Paper concept with their resources</li>
+        <li>Government policy changes reducing exam frequency or vacancies</li>
+        <li>User trust: one inaccurate "prediction" can damage brand significantly</li>
+        <li>Piracy — users sharing papers outside the platform (watermarking/DRM needed)</li>
+        <li>Price competition: established players can cross-subsidise to undercut ExamPrime</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Market Gap Identification</h3>
+  <div class="callout">
+    <p>The white space ExamPrime occupies is <strong>Exam Intelligence for the Final Preparation Phase</strong>. No incumbent has built a product specifically for the aspirant who has 15–30 days left and needs to know exactly what to study. This is not an accident — incumbents have a structural incentive to sell more content. ExamPrime's incentive is the opposite: deliver results with less content. This creates a fundamentally different product and a defensible market position.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 11: FINANCIAL PROJECTIONS ══════════════════════════════════════════ -->
+<div class="section" id="s11">
+  <div class="section-header">
+    <div class="section-num">11</div>
+    <div class="section-title-block">
+      <h2>Financial Projections — 5 Years</h2>
+      <p>Revenue, expenses, P&L, cash flow, and break-even analysis</p>
+    </div>
+  </div>
+  <p><em>Assumptions: Seed funding of ₹3Cr received in Q3 2026. All figures in Indian Rupees (Crore). Fiscal year April–March.</em></p>
+
+  <h3>Revenue Forecast</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>FY27 (Yr 1)</th><th>FY28 (Yr 2)</th><th>FY29 (Yr 3)</th><th>FY30 (Yr 4)</th><th>FY31 (Yr 5)</th></tr></thead>
+      <tbody>
+        <tr><td>Total Registered Users</td><td>25,000</td><td>1,20,000</td><td>5,00,000</td><td>15,00,000</td><td>40,00,000</td></tr>
+        <tr><td>Paying Users</td><td>8,000</td><td>50,000</td><td>2,00,000</td><td>6,00,000</td><td>15,00,000</td></tr>
+        <tr><td>Paying User % (Conversion)</td><td>32%</td><td>42%</td><td>40%</td><td>40%</td><td>37.5%</td></tr>
+        <tr><td>Blended ARPU (₹/year)</td><td>₹450</td><td>₹450</td><td>₹475</td><td>₹500</td><td>₹525</td></tr>
+        <tr><td><strong>B2C Revenue (₹Cr)</strong></td><td><strong>0.36</strong></td><td><strong>2.25</strong></td><td><strong>9.50</strong></td><td><strong>30.00</strong></td><td><strong>78.75</strong></td></tr>
+        <tr><td>B2B Institutional Revenue (₹Cr)</td><td>0</td><td>0.18</td><td>1.20</td><td>5.00</td><td>15.00</td></tr>
+        <tr class="fin-highlight"><td><strong>Total Revenue (₹Cr)</strong></td><td><strong>0.36</strong></td><td><strong>2.43</strong></td><td><strong>10.70</strong></td><td><strong>35.00</strong></td><td><strong>93.75</strong></td></tr>
+        <tr><td>YoY Growth</td><td>—</td><td>575%</td><td>340%</td><td>227%</td><td>168%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Expense Forecast (₹ Crore)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Expense Category</th><th>FY27</th><th>FY28</th><th>FY29</th><th>FY30</th><th>FY31</th></tr></thead>
+      <tbody>
+        <tr><td>Salaries & HR</td><td>0.90</td><td>1.80</td><td>4.00</td><td>9.00</td><td>20.00</td></tr>
+        <tr><td>Technology & Infrastructure</td><td>0.30</td><td>0.60</td><td>1.20</td><td>3.00</td><td>7.00</td></tr>
+        <tr><td>Content Creation</td><td>0.60</td><td>0.90</td><td>2.00</td><td>4.50</td><td>9.00</td></tr>
+        <tr><td>Marketing & Sales</td><td>0.60</td><td>1.20</td><td>3.50</td><td>9.00</td><td>22.00</td></tr>
+        <tr><td>AI/ML Development</td><td>0.30</td><td>0.45</td><td>0.90</td><td>2.00</td><td>4.00</td></tr>
+        <tr><td>Operations & Overheads</td><td>0.20</td><td>0.35</td><td>0.70</td><td>1.50</td><td>3.50</td></tr>
+        <tr class="fin-highlight"><td><strong>Total Expenses (₹Cr)</strong></td><td><strong>2.90</strong></td><td><strong>5.30</strong></td><td><strong>12.30</strong></td><td><strong>29.00</strong></td><td><strong>65.50</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Profit & Loss Summary (₹ Crore)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>P&L Line</th><th>FY27</th><th>FY28</th><th>FY29</th><th>FY30</th><th>FY31</th></tr></thead>
+      <tbody>
+        <tr><td>Revenue</td><td>0.36</td><td>2.43</td><td>10.70</td><td>35.00</td><td>93.75</td></tr>
+        <tr><td>Cost of Revenue (35%)</td><td>0.13</td><td>0.85</td><td>3.75</td><td>12.25</td><td>32.81</td></tr>
+        <tr><td>Gross Profit</td><td>0.23</td><td>1.58</td><td>6.95</td><td>22.75</td><td>60.94</td></tr>
+        <tr><td>Gross Margin</td><td>64%</td><td>65%</td><td>65%</td><td>65%</td><td>65%</td></tr>
+        <tr><td>Operating Expenses</td><td>2.77</td><td>4.45</td><td>8.55</td><td>16.75</td><td>32.69</td></tr>
+        <tr><td>EBITDA</td><td>(2.54)</td><td>(2.87)</td><td>(1.60)</td><td>6.00</td><td>28.25</td></tr>
+        <tr class="fin-highlight"><td><strong>Net Profit/Loss (₹Cr)</strong></td><td><strong>(2.54)</strong></td><td><strong>(2.87)</strong></td><td><strong>(1.60)</strong></td><td><strong>+6.00</strong></td><td><strong>+28.25</strong></td></tr>
+        <tr><td>Net Margin</td><td>—</td><td>—</td><td>—</td><td>17.1%</td><td>30.1%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Cash Flow & Break-Even Analysis</h3>
+  <div class="stat-row">
+    <div class="stat-card"><div class="big">M<span>18</span></div><div class="label">Break-Even Month</div><div class="sub">Operational break-even at Month 18 post-seed</div></div>
+    <div class="stat-card"><div class="big">₹<span>9</span>Cr</div><div class="label">Cash Needed to Break-Even</div><div class="sub">₹3Cr seed + ₹6Cr Series A</div></div>
+    <div class="stat-card"><div class="big">₹<span>105</span>Cr</div><div class="label">5-Year Cumulative Revenue</div><div class="sub">Total revenue FY27–FY31</div></div>
+    <div class="stat-card"><div class="big">₹<span>30</span>Cr</div><div class="label">FY31 EBITDA</div><div class="sub">30%+ net margin at maturity</div></div>
+  </div>
+
+  <h3>Key Financial Metrics</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>FY27</th><th>FY28</th><th>FY29</th><th>FY30</th><th>FY31</th></tr></thead>
+      <tbody>
+        <tr><td>Monthly Recurring Revenue (MRR, ₹L)</td><td>3.0</td><td>20.3</td><td>89.2</td><td>291.7</td><td>781.3</td></tr>
+        <tr><td>CAC (₹)</td><td>250</td><td>210</td><td>175</td><td>150</td><td>130</td></tr>
+        <tr><td>LTV (₹)</td><td>900</td><td>1,125</td><td>1,500</td><td>2,000</td><td>2,250</td></tr>
+        <tr><td>LTV:CAC Ratio</td><td>3.6×</td><td>5.4×</td><td>8.6×</td><td>13.3×</td><td>17.3×</td></tr>
+        <tr><td>Annual Churn Rate</td><td>35%</td><td>28%</td><td>22%</td><td>18%</td><td>15%</td></tr>
+        <tr><td>Gross Margin</td><td>64%</td><td>65%</td><td>65%</td><td>65%</td><td>65%</td></tr>
+        <tr><td>Revenue per Employee (₹L)</td><td>12</td><td>40.5</td><td>107</td><td>194.4</td><td>313</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 12: FUNDING REQUIREMENT ══════════════════════════════════════════ -->
+<div class="section" id="s12">
+  <div class="section-header">
+    <div class="section-num">12</div>
+    <div class="section-title-block">
+      <h2>Funding Requirement Document</h2>
+      <p>Total funding needed, stages, use of funds, runway, and investor benefits</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p>ExamPrime is seeking <strong>₹3 Crore (approx. $360,000 USD)</strong> in its Seed Round to fund 18 months of operations and bring the platform from MVP to a revenue-generating, data-validated business ready for a Series A raise.</p>
+  </div>
+
+  <h3>Use of Funds</h3>
+  <div class="fund-grid">
+    <div class="fund-card"><div class="amount">₹<span>1.20</span>Cr</div><div class="pct">40% OF SEED</div><div class="use">Product & AI Engine Development — Full-stack build, AI prediction model v1, payment integration, performance optimization, PWA mobile launch</div></div>
+    <div class="fund-card"><div class="amount">₹<span>0.75</span>Cr</div><div class="pct">25% OF SEED</div><div class="use">Content Creation & Research — Master Papers and Mock Sets for 20 exams, subject matter expert fees, quality assurance, bilingual content</div></div>
+    <div class="fund-card"><div class="amount">₹<span>0.60</span>Cr</div><div class="pct">20% OF SEED</div><div class="use">Marketing & Customer Acquisition — Influencer partnerships, performance marketing, community building, app store optimization</div></div>
+    <div class="fund-card"><div class="amount">₹<span>0.30</span>Cr</div><div class="pct">10% OF SEED</div><div class="use">Team Building — 2 senior hires (AI/ML engineer + Growth Lead), contractor fees, HR and onboarding</div></div>
+    <div class="fund-card"><div class="amount">₹<span>0.15</span>Cr</div><div class="pct">5% OF SEED</div><div class="use">Operations & Legal — Company incorporation (if not done), legal documentation, accounting, office setup, compliance</div></div>
+  </div>
+
+  <h3>Funding Stages</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Stage</th><th>Amount</th><th>Timeline</th><th>Milestones Required</th><th>Valuation (Pre-Money)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Seed Round</strong></td><td>₹3 Crore</td><td>Q3 2026</td><td>MVP live, concept validated, founding team in place</td><td>₹12–₹18 Crore</td></tr>
+        <tr><td><strong>Series A</strong></td><td>₹15–₹25 Crore</td><td>Q4 2027</td><td>50,000 paying users, ₹2.5Cr ARR, AI engine validated</td><td>₹75–₹125 Crore</td></tr>
+        <tr><td><strong>Series B</strong></td><td>₹60–₹100 Crore</td><td>Q2 2029</td><td>3,00,000+ paying users, ₹30Cr ARR, institutional revenue, EBITDA positive</td><td>₹400–₹600 Crore</td></tr>
+        <tr><td><strong>Series C / Pre-IPO</strong></td><td>₹200–₹400 Crore</td><td>FY31–32</td><td>10M+ users, ₹200Cr+ ARR, international expansion, IPO-ready</td><td>₹2,000+ Crore</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Runway Calculation</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Period</th><th>Monthly Burn</th><th>Monthly Revenue</th><th>Net Monthly Cash Use</th><th>Cumulative Cash</th></tr></thead>
+      <tbody>
+        <tr><td>Month 1–3 (Pre-revenue)</td><td>₹22L</td><td>₹0</td><td>₹22L</td><td>₹3.00Cr → ₹2.34Cr</td></tr>
+        <tr><td>Month 4–6</td><td>₹22L</td><td>₹2L</td><td>₹20L</td><td>₹2.34Cr → ₹1.74Cr</td></tr>
+        <tr><td>Month 7–12</td><td>₹25L</td><td>₹12L</td><td>₹13L</td><td>₹1.74Cr → ₹96L</td></tr>
+        <tr><td>Month 13–18</td><td>₹28L</td><td>₹30L</td><td>₹(2L) net positive</td><td>Operational break-even at M18</td></tr>
+        <tr class="fin-highlight"><td><strong>Total Runway</strong></td><td colspan="3">~18 months to operational break-even</td><td><strong>Series A trigger at M18</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Expected ROI & Investor Benefits</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Scenario</th><th>Exit Multiple</th><th>Timeline</th><th>Investor Return on ₹3Cr Seed</th><th>Exit Mechanism</th></tr></thead>
+      <tbody>
+        <tr><td>Conservative (Acquisition)</td><td>15× revenue</td><td>Year 4</td><td>~₹45Cr (15×)</td><td>Strategic acquisition by Adda247/Testbook/BYJU's</td></tr>
+        <tr><td>Base Case (PE/Strategic)</td><td>25× revenue</td><td>Year 5</td><td>~₹200Cr (66×)</td><td>Series C + secondary sale</td></tr>
+        <tr><td>Bull Case (IPO)</td><td>50× revenue</td><td>Year 6–7</td><td>~₹800Cr (266×)</td><td>SME IPO on NSE/BSE</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 13: TEAM ══════════════════════════════════════════ -->
+<div class="section" id="s13">
+  <div class="section-header">
+    <div class="section-num">13</div>
+    <div class="section-title-block">
+      <h2>Team & Organization Structure</h2>
+      <p>Founder profiles, leadership, advisory board, hiring plan, and org chart</p>
+    </div>
+  </div>
+
+  <h3>Founding Team</h3>
+  <div class="feature-grid">
+    <div class="feature-card"><div class="icon">👤</div><h4>Founder & CEO</h4><p>Deep domain knowledge of government exam ecosystem. Vision holder and product architect behind the Master Paper methodology. Responsible for strategy, fundraising, partnerships, and exam intelligence product philosophy.</p><p><em>Required Background: Government exam aspirant background, EdTech/product experience, 3+ years startup experience.</em></p></div>
+    <div class="feature-card"><div class="icon">💻</div><h4>Co-Founder & CTO</h4><p>Full-stack engineer and AI/ML architect. Leads all technology development, platform architecture, and AI prediction engine. Responsible for 99.5% uptime and product scalability.</p><p><em>Required Background: 5+ years engineering, experience with ML/NLP, Python/Node.js, cloud infrastructure.</em></p></div>
+    <div class="feature-card"><div class="icon">📚</div><h4>Head of Content & Intelligence</h4><p>Manages the exam analysis pipeline — curating PYQ data, running topic-frequency models, and authoring Master Papers and Mock sets. Ensures prediction accuracy and content quality across all 50+ target exams.</p><p><em>Required Background: Exam coaching background, content creation, data analysis.</em></p></div>
+    <div class="feature-card"><div class="icon">📈</div><h4>Growth & Marketing Lead</h4><p>Owns community building, influencer partnerships, performance marketing, and brand. Manages ExamPrime's Telegram channels, YouTube presence, and paid acquisition strategy.</p><p><em>Required Background: D2C growth marketing, EdTech community management, performance ads.</em></p></div>
+  </div>
+
+  <h3>Organizational Chart</h3>
+  <div class="org-chart">
+    <div class="org-level">
+      <div class="org-box ceo"><div class="name">Founder / CEO</div><div class="title">Strategy · Product · Fundraising</div></div>
+    </div>
+    <div style="text-align:center; margin: -8px 0 8px; color: var(--border); font-size: 24px;">↓</div>
+    <div class="org-level">
+      <div class="org-box"><div class="name">CTO</div><div class="title">Platform · AI Engine · Infrastructure</div></div>
+      <div class="org-box"><div class="name">Head of Content</div><div class="title">Master Papers · Mock Sets · QA</div></div>
+      <div class="org-box"><div class="name">Growth Lead</div><div class="title">Marketing · Community · Sales</div></div>
+    </div>
+    <div style="text-align:center; margin: -8px 0 8px; color: var(--border); font-size: 24px;">↓</div>
+    <div class="org-level">
+      <div class="org-box"><div class="name">AI/ML Engineer</div><div class="title">Prediction Models</div></div>
+      <div class="org-box"><div class="name">Frontend Dev</div><div class="title">Web · App · UX</div></div>
+      <div class="org-box"><div class="name">Content Writers (3–5)</div><div class="title">Subject Experts</div></div>
+      <div class="org-box"><div class="name">Community Manager</div><div class="title">Telegram · WhatsApp</div></div>
+    </div>
+  </div>
+
+  <h3>Advisory Board (Target Profiles)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Role</th><th>Profile Required</th><th>Value Add</th></tr></thead>
+      <tbody>
+        <tr><td>EdTech Advisor</td><td>Former senior at Adda247, Testbook, or Unacademy</td><td>Market access, hiring network, monetization learnings</td></tr>
+        <tr><td>Exam Domain Expert</td><td>IAS/IPS/IES officer, SSC topper turned coach</td><td>Content credibility, aspirant trust, media visibility</td></tr>
+        <tr><td>AI/ML Advisor</td><td>ML engineer from IIT/top AI firm with NLP background</td><td>AI prediction engine design and validation</td></tr>
+        <tr><td>Venture Advisor</td><td>Angel investor or VC from education/consumer internet space</td><td>Fundraising guidance, investor introductions, term sheet navigation</td></tr>
+        <tr><td>B2B / Institutional Advisor</td><td>Director at coaching institute chain or government org</td><td>Institutional sales pipeline, channel partnerships</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Hiring Roadmap (Post-Seed)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Quarter</th><th>Roles</th><th>Budget</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td>Q1 Post-Seed</td><td>1 AI/ML Engineer, 1 Content Writer (SSC focus)</td><td>₹8L/month</td><td>Core tech and content needs for Phase 1</td></tr>
+        <tr><td>Q2 Post-Seed</td><td>1 Full-Stack Frontend Dev, 1 Community Manager</td><td>₹7L/month</td><td>Mobile app build + Telegram/community scale</td></tr>
+        <tr><td>Q3–Q4 Post-Seed</td><td>2 Content Writers (Banking + Railways), 1 Growth Exec</td><td>₹10L/month</td><td>Exam coverage expansion + paid acquisition</td></tr>
+        <tr><td>Year 2 (Post-Series A)</td><td>B2B Sales team (2), iOS Dev, Hindi content team</td><td>₹25L/month</td><td>Institutional pipeline + vernacular scale</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 14: RISK ASSESSMENT ══════════════════════════════════════════ -->
+<div class="section" id="s14">
+  <div class="section-header">
+    <div class="section-num">14</div>
+    <div class="section-title-block">
+      <h2>Risk Assessment</h2>
+      <p>Market, product, operational, and financial risks with mitigation strategies</p>
+    </div>
+  </div>
+
+  <h3>Market Risks</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Risk</th><th>Probability</th><th>Impact</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>Incumbent (Adda247/Testbook) clones the Master Paper concept</td><td><span class="risk-level-high">High</span></td><td><span class="risk-level-high">High</span></td><td>Move faster on AI prediction moat. Build brand loyalty via community. File design patents. Win the "first mover" narrative in media.</td></tr>
+        <tr><td>Government reduces exam vacancies or delays exam calendars</td><td><span class="risk-level-med">Medium</span></td><td><span class="risk-level-high">High</span></td><td>Diversify across 50+ exam types. State PSCs provide buffer against central government slowdowns. Expand to private sector assessment (Phase 3).</td></tr>
+        <tr><td>Price sensitivity prevents monetization at target ARPU</td><td><span class="risk-level-med">Medium</span></td><td><span class="risk-level-med">Medium</span></td><td>Implement ₹49 entry-point. Strong freemium layer. Use success stories and ROI framing ("₹499 vs ₹30,000 coaching"). B2B revenue as hedge.</td></tr>
+        <tr><td>AI prediction accuracy falls below user expectations</td><td><span class="risk-level-med">Medium</span></td><td><span class="risk-level-high">High</span></td><td>Never promise "predictions will come in exam" — frame as "highest probability based on 10-year analysis." Measure post-exam accuracy publicly. Iterate model quarterly.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Product Risks</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Risk</th><th>Probability</th><th>Impact</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>Content quality issues in Master Papers (errors, outdated questions)</td><td><span class="risk-level-med">Medium</span></td><td><span class="risk-level-high">High</span></td><td>3-layer QA process: subject expert → editor → validator. User feedback flagging system. Post-exam review to track accuracy.</td></tr>
+        <tr><td>Platform downtime during peak exam periods</td><td><span class="risk-level-low">Low</span></td><td><span class="risk-level-high">High</span></td><td>Auto-scaling cloud infrastructure. Load testing before each major exam season. Offline PDF download as fallback.</td></tr>
+        <tr><td>Content piracy (papers shared outside platform)</td><td><span class="risk-level-high">High</span></td><td><span class="risk-level-med">Medium</span></td><td>Digital watermarking on all papers. Account-locked PDF downloads. Monitor Telegram groups for piracy. Build community trust to reduce sharing incentive.</td></tr>
+        <tr><td>Mobile performance issues for Tier 3 users (slow connections)</td><td><span class="risk-level-med">Medium</span></td><td><span class="risk-level-med">Medium</span></td><td>Progressive Web App (PWA) for offline access. Aggressive image compression. Sub-50KB page weights. CDN for India-edge delivery.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Operational Risks</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Risk</th><th>Probability</th><th>Impact</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>Key person dependency (founder/CTO)</td><td><span class="risk-level-med">Medium</span></td><td><span class="risk-level-high">High</span></td><td>Document all processes early. Build advisory board with domain overlap. Competitive equity grants to retain key hires.</td></tr>
+        <tr><td>Content creation bottleneck — cannot scale to 50 exams fast enough</td><td><span class="risk-level-high">High</span></td><td><span class="risk-level-med">Medium</span></td><td>Standardized paper template (reduces creation time to 2–3 days/paper). Hire 3–5 subject experts early. Prioritize high-volume exams first (SSC, IBPS).</td></tr>
+        <tr><td>Regulatory risk — educational content regulations or data privacy</td><td><span class="risk-level-low">Low</span></td><td><span class="risk-level-med">Medium</span></td><td>Proactive legal compliance with IT Act, DPDP Act 2023 (India). Privacy-first data architecture. Legal counsel retained from seed funding.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Financial Risks</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Risk</th><th>Probability</th><th>Impact</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>Seed funding runway runs shorter than projected (higher burn)</td><td><span class="risk-level-med">Medium</span></td><td><span class="risk-level-high">High</span></td><td>Weekly burn tracking. Variable cost structure (contractors vs full-time). Revenue milestone-linked hiring. Emergency bridge plan (convertible note).</td></tr>
+        <tr><td>Series A raise fails or is delayed post-seed</td><td><span class="risk-level-med">Medium</span></td><td><span class="risk-level-high">High</span></td><td>Target operational break-even at Month 18 independently. Maintain investor update cadence. Build Series A thesis from Month 1 (metrics, narrative, deck).</td></tr>
+        <tr><td>Payment fraud or chargeback issues</td><td><span class="risk-level-low">Low</span></td><td><span class="risk-level-low">Low</span></td><td>Use Razorpay fraud detection. Limit refund policy to 7 days on digital products. Monitor chargeback ratios monthly.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════ FOOTER ══════════════════════════════════════════ -->
+<div class="doc-footer">
+  <strong>ExamPrime</strong> — Investor Pitching Package 2026 | <br>
+  <br>
+  This document is confidential and intended solely for the use of the individual or entity to whom it is addressed. The financial projections contained herein are forward-looking statements based on current assumptions and are subject to material risks and uncertainties. Past exam patterns and market data have been used for illustrative purposes only. This document does not constitute an offer to sell or a solicitation of an offer to buy any securities.<br><br>
+  © 2026 ExamPrime. All Rights Reserved.
+</div>
+
+</body>
+</html>
